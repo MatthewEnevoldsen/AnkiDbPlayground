@@ -13,7 +13,7 @@ from typing import List, Tuple, Set
 from collections import namedtuple
 
 core10kId = 1342706442509
-realDbPath = 'C:\\Users\\matte\\AppData\\Roaming\\Anki2\\Tirinst\\collection.anki2'
+realDbPath = "E:\Anki2\Tirinst\collection.anki2"
 dbPath = realDbPath
 
 
@@ -26,11 +26,11 @@ def fuckWithStuff():
     Col = Base.classes.col
     Revlog = Base.classes.revlog
     session = Session(engine)
-    #tagjpod(session, Notes)
-    tagSenRatios(session,Col, Notes,Cards)
+    tagjpod(session, Notes)
+    #r = getSenKnownRatios(session, Notes, Cards, Col)
+    #tagSenRatios(session,Notes,Cards, Col, r)
     #knownWords = getKnownVocabSet(session, Notes,Cards)
-    #jtest = open("C:\Japanese\jtest.txt", "r", encoding="UTF-8").read()
-    #Tag10KWhere(session, Notes, lambda vocab: toBaseVocab(vocab) in jtest, "jtest")
+    #Tag10KWhere(session, Notes, lambda vocab: toBaseVocab(vocab) in knownWords, "Known")
     #tagSenRatios(session, Col,Notes, Cards)
     session.close()
     
@@ -57,8 +57,8 @@ def getSenRatios(session, Col, Notes,Cards):
 def tagSenRatios(session,Col, Notes,Cards):
     jap = 0
     ratios = getSenRatios(session, Col,Notes,Cards)
-    known = 'Known2'
-    unknown = 'Unknown2'
+    known = 'Known'
+    unknown = 'Unknown'
     for n in getNotesOfType("AllSentences", session, Col, Notes):
         sentence = stripNoise(getField(n.flds, jap))
         if sentence in ratios:
@@ -212,29 +212,19 @@ def moveCards(session, Col, Notes,Cards, RevLog, fromNote: str, fromCard: str, t
     #eg
     #moveCards(session, Col, Notes, Cards, Revlog, "Core10K", "SentanceAudio", "AllSentences", "Audio", 
     #lambda s: s[0], lambda s: stripTags(s[7]))
-    #ignore if not unique
+
 
     fromCardOrd = getNoteCardDefs(fromNote, session, Col)[fromCard]
     toCardOrd = getNoteCardDefs(toNote, session, Col)[toCard]
 
-    def group(note, keyer):
-        grouped = dict()
-        for n in getNotesOfType(note, session, Col, Notes):
-            key = keyer(getFields(n.flds))
-            if key in toNotesDict:
-                grouped[key].append(key)
-            else:
-                grouped[key] = [n]
-        res = dict()
-        for k,v in grouped.items():
-            if len(v) == 1:
-                res[k] = v[0]
-        return res
+    toNotesDict = dict()
+    for n in getNotesOfType(toNote, session, Col, Notes):
+        flds = getFields(n.flds)
+        toNotesDict[toKey(flds)] = n
 
-    toNotesDict = group(toNote, toKey)
-    fromNotesDict = group(fromNote, fromKey)
-
-    for key, n in fromNotesDict.items():
+    for n in getNotesOfType(fromNote, session, Col, Notes):
+        flds = getFields(n.flds)
+        key = fromKey(flds)
         if key in toNotesDict:
             deadCard = cardFromNote(session, Cards, n, fromCardOrd)
             nextCard = cardFromNote(session, Cards, toNotesDict[key], toCardOrd)
