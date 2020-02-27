@@ -13,7 +13,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 
 core10kId = 1342706442509
-realDbPath = "E:\Anki2\Tirinst\collection.anki2"
+realDbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.anki2"
 dbPath = realDbPath
 
 
@@ -26,7 +26,8 @@ def fuckWithStuff():
     Col = Base.classes.col
     Revlog = Base.classes.revlog
     session = Session(engine)
-    tagjpod(session, Notes)
+    setSource(session, Col,Notes, "taekim", 3)
+    # tagjpod(session, Notes)
     # r = getSenKnownRatios(session, Notes, Cards, Col)
     # tagSenRatios(session,Notes,Cards, Col, r)
     # knownWords = getKnownVocabSet(session, Notes,Cards)
@@ -36,12 +37,13 @@ def fuckWithStuff():
 
 
 def setSource(session, Col, Notes, deck, sourceId):
-    notes = getNotesOfType(deck, session, Col, Notes)
+    notes = getNotesOfType("AllSentences", session, Col, Notes)
     for n in notes:
         flds = getFields(n.flds)
         if flds[sourceId] == '':
             flds[sourceId] = deck
             n.flds = toFields(flds)
+    session.commit()
 
 
 def getSenRatios(session, Col, Notes, Cards):
