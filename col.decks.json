@@ -1,1 +1,586 @@
-{"1487602708678": {"desc": "", "name": "Japanese", "extendRev": 50, "usn": 5801, "collapsed": false, "browserCollapsed": false, "newToday": [1127, 0], "lrnToday": [1127, 1892], "dyn": 0, "extendNew": 9999999, "conf": 1491403244557, "revToday": [1127, 1688], "timeToday": [1127, 14713415], "id": 1487602708678, "mod": 1565669772}, "1470596727254": {"name": "Japanese::Vocab::KanjiReadings", "extendRev": 50, "usn": 5801, "collapsed": false, "browserCollapsed": true, "mid": "1468747159976", "newToday": [1127, 0], "timeToday": [1127, 479691], "dyn": 0, "extendNew": 1, "conf": 1469381972106, "revToday": [1127, 66], "lrnToday": [1127, 97], "id": 1470596727254, "mod": 1565669769, "desc": ""}, "1469026820430": {"name": "Japanese::Audio::Phrases", "extendRev": 5000, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "lrnToday": [1127, 1], "dyn": 0, "extendNew": 0, "conf": 1487603670123, "revToday": [1127, 5], "timeToday": [1127, 23124], "id": 1469026820430, "mod": 1565666350, "desc": "Please see the <a href='https://ankiweb.net/shared/info/3355859590'>shared deck page</a> for more info."}, "1506794914610": {"desc": "Please see the <a href='https://ankiweb.net/shared/info/1667434465'>shared deck page</a> for more info.", "name": "Japanese::Reading::Sentances", "extendRev": 5000, "usn": 5792, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 1057834], "dyn": 0, "extendNew": 50, "conf": 1487603670123, "revToday": [1127, 46], "lrnToday": [1127, 10], "id": 1506794914610, "mod": 1565641599}, "1468531456450": {"name": "Japanese::Vocab::KanjiRTK", "extendRev": 50, "usn": 5801, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 1260854], "dyn": 0, "extendNew": 10, "conf": 1469381972106, "revToday": [1127, 82], "lrnToday": [1127, 282], "id": 1468531456450, "mod": 1565669772, "desc": "Please see the <a href='https://ankiweb.net/shared/info/1862058740'>shared deck page</a> for more info."}, "1516951948619": {"desc": "", "name": "SheetMusic", "extendRev": 50, "usn": 5689, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 0], "dyn": 0, "extendNew": 50, "conf": 1, "revToday": [1127, 0], "lrnToday": [1127, 0], "id": 1516951948619, "mod": 1564774526}, "1495451679055": {"desc": "", "name": "Japanese::Reading::AVocab", "extendRev": 5000, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 2935566], "dyn": 0, "extendNew": 50, "conf": 1469381972106, "revToday": [1127, 543], "lrnToday": [1127, 482], "id": 1495451679055, "mod": 1565660900}, "1552662377722": {"desc": "", "name": "Japanese::Reading::EthReading", "extendRev": 5000, "usn": 5792, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 523607], "dyn": 0, "extendNew": 100, "conf": 1487603670123, "revToday": [1127, 55], "lrnToday": [1127, 5], "id": 1552662377722, "mod": 1565642154}, "1468666847510": {"name": "Japanese::Reading::Grammar", "extendRev": 5000, "usn": 5799, "collapsed": false, "browserCollapsed": true, "mid": "1491306393950", "newToday": [1127, 0], "dyn": 0, "extendNew": 50, "lrnToday": [1127, 11], "conf": 1468750605724, "revToday": [1127, 37], "timeToday": [1127, 268420], "id": 1468666847510, "mod": 1565660284, "desc": "Please see the <a href='https://ankiweb.net/shared/info/85640050'>shared deck page</a> for more info."}, "1487603087311": {"name": "Japanese::Audio", "extendRev": 50, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 4562902], "dyn": 0, "extendNew": 10, "conf": 1491403244557, "revToday": [1127, 350], "lrnToday": [1127, 231], "id": 1487603087311, "mod": 1565666938, "desc": ""}, "1": {"desc": "", "name": "Default", "extendRev": 50, "usn": 0, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "mid": "1491307188322", "timeToday": [1127, 0], "dyn": 0, "extendNew": 10, "conf": 1, "revToday": [1127, 0], "lrnToday": [1127, 0], "id": 1, "mod": 1557528558}, "1470951871498": {"desc": "Please see the <a href='https://ankiweb.net/shared/info/1678048485'>shared deck page</a> for more info.", "name": "Japanese::Reading::Katakana", "extendRev": 50, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 19064], "dyn": 0, "extendNew": 5, "conf": 1469381972106, "revToday": [1127, 6], "lrnToday": [1127, 3], "id": 1470951871498, "mod": 1565660901}, "1495451741828": {"name": "Japanese::Vocab::English", "extendRev": 50, "usn": 5801, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "lrnToday": [1127, 779], "dyn": 0, "extendNew": 50, "conf": 1469381972106, "revToday": [1127, 546], "timeToday": [1127, 4048929], "id": 1495451741828, "mod": 1565669750, "desc": ""}, "1487602990399": {"desc": "", "name": "Japanese::Vocab", "extendRev": 50, "usn": 5801, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "lrnToday": [1127, 1158], "dyn": 0, "extendNew": 50, "conf": 1491403244557, "revToday": [1127, 694], "timeToday": [1127, 5789474], "id": 1487602990399, "mod": 1565669772}, "1557047028984": {"name": "Japanese::Reading", "extendRev": 50, "usn": 5802, "collapsed": true, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 4814274], "dyn": 0, "extendNew": 10, "conf": 1491403244557, "revToday": [1127, 691], "lrnToday": [1127, 511], "id": 1557047028984, "mod": 1565669582, "desc": ""}, "1531030549838": {"desc": "", "name": "Japanese::Reading::Texts", "extendRev": 50, "usn": 0, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "mid": 1531030723480, "timeToday": [1127, 0], "dyn": 0, "extendNew": 10, "conf": 1487603670123, "revToday": [1127, 0], "lrnToday": [1127, 0], "id": 1531030549838, "mod": 1558885077}, "1498414425509": {"desc": "", "name": "Japanese::Audio::Core10K", "extendRev": 5000, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 2490699], "dyn": 0, "extendNew": 100, "conf": 1487603670123, "revToday": [1127, 67], "lrnToday": [1127, 9], "id": 1498414425509, "mod": 1565666342}, "1471129561084": {"name": "Japanese::Reading::Hiragana", "extendRev": 50, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 9783], "dyn": 0, "extendNew": 10, "conf": 1469381972106, "revToday": [1127, 4], "lrnToday": [1127, 0], "id": 1471129561084, "mod": 1565660879, "desc": "Please see the <a href='https://ankiweb.net/shared/info/'>shared deck page</a> for more info."}, "1506795075166": {"name": "Japanese::Audio::Eth1", "extendRev": 5000, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 174929], "dyn": 0, "extendNew": 50, "conf": 1487603670123, "revToday": [1127, 10], "lrnToday": [1127, 1], "id": 1506795075166, "mod": 1565666347, "desc": "Please see the <a href='https://ankiweb.net/shared/info/1607603368'>shared deck page</a> for more info."}, "1495451715324": {"name": "Japanese::Audio::Vocab", "extendRev": 65, "usn": 5799, "collapsed": false, "browserCollapsed": true, "newToday": [1127, 0], "timeToday": [1127, 1874150], "dyn": 0, "extendNew": 100, "conf": 1469381972106, "revToday": [1127, 268], "lrnToday": [1127, 220], "id": 1495451715324, "mod": 1565666938, "desc": ""}}
+{
+  "1487602708678": {
+    "desc": "",
+    "name": "Japanese",
+    "extendRev": 50,
+    "usn": 5801,
+    "collapsed": false,
+    "browserCollapsed": false,
+    "newToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      1892
+    ],
+    "dyn": 0,
+    "extendNew": 9999999,
+    "conf": 1491403244557,
+    "revToday": [
+      1127,
+      1688
+    ],
+    "timeToday": [
+      1127,
+      14713415
+    ],
+    "id": 1487602708678,
+    "mod": 1565669772
+  },
+  "1470596727254": {
+    "name": "Japanese::Vocab::KanjiReadings",
+    "extendRev": 50,
+    "usn": 5801,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "mid": "1468747159976",
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      479691
+    ],
+    "dyn": 0,
+    "extendNew": 1,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      66
+    ],
+    "lrnToday": [
+      1127,
+      97
+    ],
+    "id": 1470596727254,
+    "mod": 1565669769,
+    "desc": ""
+  },
+  "1469026820430": {
+    "name": "Japanese::Audio::Phrases",
+    "extendRev": 5000,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      1
+    ],
+    "dyn": 0,
+    "extendNew": 0,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      5
+    ],
+    "timeToday": [
+      1127,
+      23124
+    ],
+    "id": 1469026820430,
+    "mod": 1565666350,
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/3355859590'>shared deck page</a> for more info."
+  },
+  "1506794914610": {
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/1667434465'>shared deck page</a> for more info.",
+    "name": "Japanese::Reading::Sentances",
+    "extendRev": 5000,
+    "usn": 5792,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      1057834
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      46
+    ],
+    "lrnToday": [
+      1127,
+      10
+    ],
+    "id": 1506794914610,
+    "mod": 1565641599
+  },
+  "1468531456450": {
+    "name": "Japanese::Vocab::KanjiRTK",
+    "extendRev": 50,
+    "usn": 5801,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      1260854
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      82
+    ],
+    "lrnToday": [
+      1127,
+      282
+    ],
+    "id": 1468531456450,
+    "mod": 1565669772,
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/1862058740'>shared deck page</a> for more info."
+  },
+  "1516951948619": {
+    "desc": "",
+    "name": "SheetMusic",
+    "extendRev": 50,
+    "usn": 5689,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      0
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1,
+    "revToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      0
+    ],
+    "id": 1516951948619,
+    "mod": 1564774526
+  },
+  "1495451679055": {
+    "desc": "",
+    "name": "Japanese::Reading::AVocab",
+    "extendRev": 5000,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      2935566
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      543
+    ],
+    "lrnToday": [
+      1127,
+      482
+    ],
+    "id": 1495451679055,
+    "mod": 1565660900
+  },
+  "1552662377722": {
+    "desc": "",
+    "name": "Japanese::Reading::EthReading",
+    "extendRev": 5000,
+    "usn": 5792,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      523607
+    ],
+    "dyn": 0,
+    "extendNew": 100,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      55
+    ],
+    "lrnToday": [
+      1127,
+      5
+    ],
+    "id": 1552662377722,
+    "mod": 1565642154
+  },
+  "1468666847510": {
+    "name": "Japanese::Reading::Grammar",
+    "extendRev": 5000,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "mid": "1491306393950",
+    "newToday": [
+      1127,
+      0
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "lrnToday": [
+      1127,
+      11
+    ],
+    "conf": 1468750605724,
+    "revToday": [
+      1127,
+      37
+    ],
+    "timeToday": [
+      1127,
+      268420
+    ],
+    "id": 1468666847510,
+    "mod": 1565660284,
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/85640050'>shared deck page</a> for more info."
+  },
+  "1487603087311": {
+    "name": "Japanese::Audio",
+    "extendRev": 50,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      4562902
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1491403244557,
+    "revToday": [
+      1127,
+      350
+    ],
+    "lrnToday": [
+      1127,
+      231
+    ],
+    "id": 1487603087311,
+    "mod": 1565666938,
+    "desc": ""
+  },
+  "1": {
+    "desc": "",
+    "name": "Default",
+    "extendRev": 50,
+    "usn": 0,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "mid": "1491307188322",
+    "timeToday": [
+      1127,
+      0
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1,
+    "revToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      0
+    ],
+    "id": 1,
+    "mod": 1557528558
+  },
+  "1470951871498": {
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/1678048485'>shared deck page</a> for more info.",
+    "name": "Japanese::Reading::Katakana",
+    "extendRev": 50,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      19064
+    ],
+    "dyn": 0,
+    "extendNew": 5,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      6
+    ],
+    "lrnToday": [
+      1127,
+      3
+    ],
+    "id": 1470951871498,
+    "mod": 1565660901
+  },
+  "1495451741828": {
+    "name": "Japanese::Vocab::English",
+    "extendRev": 50,
+    "usn": 5801,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      779
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      546
+    ],
+    "timeToday": [
+      1127,
+      4048929
+    ],
+    "id": 1495451741828,
+    "mod": 1565669750,
+    "desc": ""
+  },
+  "1487602990399": {
+    "desc": "",
+    "name": "Japanese::Vocab",
+    "extendRev": 50,
+    "usn": 5801,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      1158
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1491403244557,
+    "revToday": [
+      1127,
+      694
+    ],
+    "timeToday": [
+      1127,
+      5789474
+    ],
+    "id": 1487602990399,
+    "mod": 1565669772
+  },
+  "1557047028984": {
+    "name": "Japanese::Reading",
+    "extendRev": 50,
+    "usn": 5802,
+    "collapsed": true,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      4814274
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1491403244557,
+    "revToday": [
+      1127,
+      691
+    ],
+    "lrnToday": [
+      1127,
+      511
+    ],
+    "id": 1557047028984,
+    "mod": 1565669582,
+    "desc": ""
+  },
+  "1531030549838": {
+    "desc": "",
+    "name": "Japanese::Reading::Texts",
+    "extendRev": 50,
+    "usn": 0,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "mid": 1531030723480,
+    "timeToday": [
+      1127,
+      0
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      0
+    ],
+    "lrnToday": [
+      1127,
+      0
+    ],
+    "id": 1531030549838,
+    "mod": 1558885077
+  },
+  "1498414425509": {
+    "desc": "",
+    "name": "Japanese::Audio::Core10K",
+    "extendRev": 5000,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      2490699
+    ],
+    "dyn": 0,
+    "extendNew": 100,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      67
+    ],
+    "lrnToday": [
+      1127,
+      9
+    ],
+    "id": 1498414425509,
+    "mod": 1565666342
+  },
+  "1471129561084": {
+    "name": "Japanese::Reading::Hiragana",
+    "extendRev": 50,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      9783
+    ],
+    "dyn": 0,
+    "extendNew": 10,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      4
+    ],
+    "lrnToday": [
+      1127,
+      0
+    ],
+    "id": 1471129561084,
+    "mod": 1565660879,
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/'>shared deck page</a> for more info."
+  },
+  "1506795075166": {
+    "name": "Japanese::Audio::Eth1",
+    "extendRev": 5000,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      174929
+    ],
+    "dyn": 0,
+    "extendNew": 50,
+    "conf": 1487603670123,
+    "revToday": [
+      1127,
+      10
+    ],
+    "lrnToday": [
+      1127,
+      1
+    ],
+    "id": 1506795075166,
+    "mod": 1565666347,
+    "desc": "Please see the <a href='https://ankiweb.net/shared/info/1607603368'>shared deck page</a> for more info."
+  },
+  "1495451715324": {
+    "name": "Japanese::Audio::Vocab",
+    "extendRev": 65,
+    "usn": 5799,
+    "collapsed": false,
+    "browserCollapsed": true,
+    "newToday": [
+      1127,
+      0
+    ],
+    "timeToday": [
+      1127,
+      1874150
+    ],
+    "dyn": 0,
+    "extendNew": 100,
+    "conf": 1469381972106,
+    "revToday": [
+      1127,
+      268
+    ],
+    "lrnToday": [
+      1127,
+      220
+    ],
+    "id": 1495451715324,
+    "mod": 1565666938,
+    "desc": ""
+  }
+}

@@ -1,27 +1,21 @@
-import shutil
-import sqlite3
-import json
-import re
 import glob
-import string
-import operator
 import os
-import datetime
-from typing import List, Tuple, Set
-from collections import namedtuple
-from itertools import islice
+import re
+import shutil
+
 import requests
+
 
 def getJPodLinkedFiles(ext: str):
     jpod = "C:\Pod\Level2\lesson"
     allmp3s = set()
-    for file in  glob.glob(jpod + '\**\*.htm', recursive=True):
+    for file in glob.glob(jpod + '\**\*.htm', recursive=True):
         text = open(file, "r", encoding="UTF-8").read()
-        matches = re.findall(f'http.*?\.{ext}' ,text)
+        matches = re.findall(f'http.*?\.{ext}', text)
         if not matches is None:
             for m in matches:
                 allmp3s.add(m)
-    print (len(allmp3s))
+    print(len(allmp3s))
     for mp3 in allmp3s:
         filename = os.path.basename(mp3)
         downloadDir = 'E:\\Japanese\\AllJPod\\'
@@ -37,5 +31,7 @@ def getJPodLinkedFiles(ext: str):
             shutil.copyfile(downloadPath, newPath)
     print(len(allmp3s))
     print(len(glob.glob(courseDir + '\*')))
-#getJPodLinkedFiles('pdf') 
+
+
+# getJPodLinkedFiles('pdf')
 getJPodLinkedFiles('mp3')

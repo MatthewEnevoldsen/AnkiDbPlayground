@@ -1,26 +1,14 @@
-import sqlite3
-import json
-import re
 import glob
-import shutil
-import string
-import operator
 import os
-import random
-import datetime
-from typing import List, Tuple, Set
-from collections import namedtuple
-from itertools import islice
-from random import shuffle
-import requests
+import shutil
 
 playerDrive = 'g'
-#files = ['C:\\Users\\matte\\Documents\\Sound recordings\\1.m4a','C:\\Users\\matte\\Documents\\Sound recordings\\2.m4a']
+# files = ['C:\\Users\\matte\\Documents\\Sound recordings\\1.m4a','C:\\Users\\matte\\Documents\\Sound recordings\\2.m4a']
 files = glob.glob('E:\Japanese\AllJPod\mp3\*.mp3', recursive=True)
-#music = ['C:\\Users\\matte\\Documents\\Sound recordings\\3.m4a']
+# music = ['C:\\Users\\matte\\Documents\\Sound recordings\\3.m4a']
 music = glob.glob('E:\music\mp3\*.mp3', recursive=True)
-#shuffle(files)
-#shuffle(music)
+# shuffle(files)
+# shuffle(music)
 dialogLen = len(files)
 musicLen = len(music)
 

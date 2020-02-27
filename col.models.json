@@ -1,1 +1,2099 @@
-{"1342706442509": {"vers": [], "name": "Core10K", "tags": [], "did": "1381142522860", "usn": 5802, "req": [[0, "all", [2]], [1, "all", [4]], [2, "all", [10]], [3, "any", [8, 11]]], "flds": [{"name": "CoreIndex", "rtl": false, "sticky": false, "media": [], "ord": 0, "font": "MS Shell Dlg 2", "size": 20}, {"name": "Optimized-Voc-Index2k+4kDefault", "rtl": false, "sticky": false, "media": [], "ord": 1, "font": "MS Shell Dlg 2", "size": 20}, {"name": "vocab", "rtl": false, "sticky": false, "media": [], "ord": 2, "font": "MS Shell Dlg 2", "size": 20}, {"name": "vocab-kana", "rtl": false, "sticky": false, "media": [], "ord": 3, "font": "MS Shell Dlg 2", "size": 12}, {"name": "vocab-translation", "rtl": false, "sticky": false, "media": [], "ord": 4, "font": "Liberation Sans", "size": 12}, {"name": "part-of-speech", "rtl": false, "sticky": false, "media": [], "ord": 5, "font": "Liberation Sans", "size": 12}, {"name": "sentence-translation", "rtl": false, "sticky": false, "media": [], "ord": 6, "font": "IPAex\u30b4\u30b7\u30c3\u30af", "size": 12}, {"name": "vocab-furigana", "rtl": false, "sticky": false, "media": [], "ord": 7, "font": "MS Shell Dlg 2", "size": 12}, {"name": "sentence", "rtl": false, "sticky": false, "media": [], "ord": 8, "font": "MS Shell Dlg 2", "size": 12}, {"name": "word-type", "rtl": false, "sticky": false, "media": [], "ord": 9, "font": "MS Shell Dlg 2", "size": 20}, {"name": "vocab-audio", "rtl": false, "sticky": false, "media": [], "ord": 10, "font": "Liberation Sans", "size": 12}, {"name": "sentence-audio", "rtl": false, "sticky": false, "media": [], "ord": 11, "font": "Liberation Sans", "size": 12}, {"name": "Notes-Kanjified-vocab", "rtl": false, "sticky": false, "media": [], "ord": 12, "font": "MS Shell Dlg 2", "size": 20}, {"name": "Vocabulary-PitchAccent", "rtl": false, "sticky": false, "media": [], "ord": 13, "font": "Liberation Sans", "size": 20}, {"name": "wordstructure", "rtl": false, "sticky": false, "media": [], "ord": 14, "font": "IPAex\u30b4\u30b7\u30c3\u30af", "size": 20}, {"name": "examples", "rtl": false, "sticky": true, "media": [], "ord": 15, "font": "Arial", "size": 20}, {"name": "Optimized-Voc-Index2k", "rtl": false, "sticky": false, "media": [], "ord": 16, "font": "Arial", "size": 20}, {"name": "vocab-frequency", "rtl": false, "sticky": false, "media": [], "ord": 17, "font": "Arial", "size": 20}, {"name": "Nukikame-Core6k-Optimized-Voc-Index", "rtl": false, "sticky": false, "media": [], "ord": 18, "font": "Arial", "size": 20}, {"name": "Notes-MyOwnNote-Production", "rtl": false, "sticky": false, "media": [], "ord": 19, "font": "Arial", "size": 20}, {"name": "Notes-MyOwnNote-Reading", "rtl": false, "sticky": false, "media": [], "ord": 20, "font": "Arial", "size": 20}, {"name": "vocab-rtk", "rtl": false, "sticky": false, "media": [], "ord": 21, "font": "Arial", "size": 20}, {"name": "jlptlevel", "rtl": false, "sticky": false, "media": [], "ord": 22, "font": "Arial", "size": 20}, {"name": "Marked", "rtl": false, "sticky": false, "media": [], "ord": 23, "font": "Arial", "size": 20}], "sortf": 22, "tmpls": [{"name": "Kanji", "qfmt": "<div class=\"vocab mincho\">{{vocab}}</div>\n", "did": null, "bafmt": "", "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n{{vocab-translation}} <br/>\n\t\n\t{{part-of-speech}} <br/>\n\tFreq: {{jlptlevel}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n", "ord": 0, "bqfmt": ""}, {"name": "English", "qfmt": "<div class=\"vocab mincho\">{{vocab-translation}}</div>\n", "did": null, "bafmt": "", "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n\t{{vocab-translation}} <br/>\n\t{{part-of-speech}} <br/>\n\tFreq: {{vocab-frequency}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n\n", "ord": 1, "bqfmt": ""}, {"name": "Audio", "qfmt": "<div class=\"vocab mincho\">{{vocab-audio}}</div>\n\n\n", "did": null, "bafmt": "", "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n\t{{vocab-translation}} <br/>\n\t{{part-of-speech}} <br/>\n\tFreq: {{vocab-frequency}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n\n", "ord": 2, "bqfmt": ""}, {"name": "SentanceAudio", "qfmt": "\n<div class=\"sentance mincho\">\n\t{{kanji:sentence}}<br/>\n\t{{sentence-audio}}<br/>\n</div>\n", "did": null, "bafmt": "", "afmt": "\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\n</div>\n", "ord": 3, "bqfmt": ""}], "mod": 1565670183, "latexPost": "\\end{document}", "type": 0, "id": 1342706442509, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"}, "1455531004306": {"vers": [], "name": "KanjiRTK", "tags": [], "did": 1455531116042, "usn": 5538, "req": [[0, "all", [0]]], "flds": [{"name": "Kanji", "rtl": false, "sticky": false, "media": [], "ord": 0, "font": "Arial", "size": 20}, {"name": "Onyomi", "rtl": false, "sticky": false, "media": [], "ord": 1, "font": "Arial", "size": 20}, {"name": "Kunyomi", "rtl": false, "sticky": false, "media": [], "ord": 2, "font": "Arial", "size": 20}, {"name": "Nanori", "rtl": false, "sticky": false, "media": [], "ord": 3, "font": "Arial", "size": 20}, {"name": "English", "rtl": false, "sticky": false, "media": [], "ord": 4, "font": "Arial", "size": 20}, {"name": "Examples", "rtl": false, "sticky": false, "media": [], "ord": 5, "font": "Arial", "size": 20}, {"name": "JLPT Level", "rtl": false, "sticky": false, "media": [], "ord": 6, "font": "Arial", "size": 20}, {"name": "Jouyou Grade", "rtl": false, "sticky": false, "media": [], "ord": 7, "font": "Arial", "size": 20}, {"name": "Frequency", "rtl": false, "sticky": false, "media": [], "ord": 8, "font": "Arial", "size": 20}, {"name": "Components", "rtl": false, "sticky": false, "media": [], "ord": 9, "font": "Arial", "size": 20}, {"name": "Number of Strokes", "rtl": false, "sticky": false, "media": [], "ord": 10, "font": "Arial", "size": 20}, {"name": "Kanji Radical", "rtl": false, "sticky": false, "media": [], "ord": 11, "font": "Arial", "size": 20}, {"name": "Radical Number", "rtl": false, "sticky": false, "media": [], "ord": 12, "font": "Arial", "size": 20}, {"name": "Radical Strokes", "rtl": false, "sticky": false, "media": [], "ord": 13, "font": "Arial", "size": 20}, {"name": "Radical Reading", "rtl": false, "sticky": false, "media": [], "ord": 14, "font": "Arial", "size": 20}, {"name": "Traditional Form", "rtl": false, "sticky": false, "media": [], "ord": 15, "font": "Arial", "size": 20}, {"name": "Classification", "rtl": false, "sticky": false, "media": [], "ord": 16, "font": "Arial", "size": 20}, {"name": "Keyword", "rtl": false, "sticky": false, "media": [], "ord": 17, "font": "Arial", "size": 20}, {"name": "Koohii Story 1", "rtl": false, "sticky": false, "media": [], "ord": 18, "font": "Arial", "size": 20}, {"name": "Koohii Story 2", "rtl": false, "sticky": false, "media": [], "ord": 19, "font": "Arial", "size": 20}, {"name": "RTK Index (new)", "rtl": false, "sticky": false, "media": [], "ord": 20, "font": "Arial", "size": 20}], "sortf": 20, "tmpls": [{"name": "Recognition", "qfmt": "<div class = vocab>\n\t<span class=\"mincho\">{{Kanji}}  </span>\n</div>", "did": null, "bafmt": "", "afmt": "<div class = vocab>\n\t<span class=\"mincho\">{{Kanji}}  </span>\n</div>\n\n<div class=\"desc\">\n<span class=\"sentance\">\n\t{{Keyword}}, {{English}}<br>\n\t{{Onyomi}}<br>\n\t{{Kunyomi}}<br>\n\t{{Nanori}}<br>\n</span>\n</div>", "ord": 0, "bqfmt": ""}], "mod": 1562338410, "latexPost": "\\end{document}", "type": 0, "id": 1455531004306, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"}, "1491306393950": {"vers": [], "name": "TkAudioSen", "tags": [], "did": 1491306326531, "usn": 0, "req": [[0, "any", [0, 2, 6]]], "flds": [{"name": "Kanji", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "English", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "Kana", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}, {"name": "Section", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}, {"name": "Chapter", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Arial", "size": 20}, {"name": "Level", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 20}, {"name": "Audio", "media": [], "sticky": false, "rtl": false, "ord": 6, "font": "Arial", "size": 20}], "sortf": 5, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Read", "qfmt": "{{Kanji}}\n<br>\n{{Kana}}\n{{Audio}}", "did": null, "bafmt": "", "afmt": "{{English}}\n", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": "1491306393950", "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n", "mod": 1514724881}, "1472225596648": {"vers": [], "name": "SheetMusic", "tags": [], "did": 1516951948619, "usn": 0, "req": [[0, "all", [0]], [1, "any", [2, 3]], [2, "all", [1]]], "flds": [{"name": "Recto", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Verso", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "String", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}, {"name": "Finger", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Image", "qfmt": "{{Recto}}", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n{{Verso}} <br>\n{{String}} <br>\n{{Finger}} <br>\n\n", "ord": 0, "bqfmt": ""}, {"name": "StringFinger", "qfmt": "{{String}} <br>\n{{Finger}} <br>", "did": null, "bafmt": "", "afmt": "{{Recto}}", "ord": 1, "bqfmt": ""}, {"name": "Note", "qfmt": "{{Verso}} <br>", "did": null, "bafmt": "", "afmt": "{{Recto}}", "ord": 2, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1472225596648, "css": ".card {\n font-family: arial;\n font-size: 40px;\n text-align: center;\n color: black;\n background-color: white;\n}\n", "mod": 1516986001}, "1459450892726": {"vers": [], "name": "jtest", "tags": [], "did": 1459697216767, "usn": 0, "req": [[0, "all", [1]], [1, "all", [5]]], "flds": [{"name": "English", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Japanese", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "Level", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}, {"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}, {"name": "Romanized", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Arial", "size": 20}, {"name": "Vocab", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 20}], "sortf": 2, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Card 1", "qfmt": "<div class=\"mincho sentance\">{{Japanese}}</div>\n\n", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n<div class=\"meiryo sentance\">{{Romanized}}</div>\n<div class=\"meiryo sentance\">{{English}}</div>\n<div class=\"meiryo sentance\">{{Level}}</div>\n<div class=\"meiryo sentance\">{{Vocab}}</div>\n<div class=\"meiryo sentance\">{{Meaning}}</div>\n", "ord": 0, "bqfmt": ""}, {"name": "Card 2", "qfmt": "<div class=\"meiryo sentance\">{{Vocab}}</div>", "did": null, "bafmt": "", "afmt": "<div class=\"meiryo sentance\">{{Vocab}}</div>\n<div class=\"meiryo sentance\">{{Meaning}}</div>\n\n\n<div class=\"meiryo sentance\">{{Japanese}}</div>\n<div class=\"meiryo sentance\">{{Romanized}}</div>\n<div class=\"meiryo sentance\">{{English}}</div>\n<div class=\"meiryo sentance\">{{Level}}</div>\n", "ord": 1, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1459450892726, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1552273830}, "1352877918558": {"vers": [], "name": "Phrases", "tags": ["HJI-C02,", "arriving"], "did": 1416468857996, "usn": 0, "req": [[0, "any", [1, 2]]], "flds": [{"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Kana", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "Pronounciation", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Kana to Meaning", "qfmt": "{{Kana}}\n{{Pronounciation}} \n", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Meaning}}<br>\n\n", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1352877918558, "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n", "mod": 1514724883}, "1425798466916": {"vers": [], "name": "WordKanjiStats", "tags": [], "did": 1426612002472, "usn": 0, "req": [[0, "all", [0]]], "flds": [{"name": "Front", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Back", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Card 1", "qfmt": "<span lang=\"ja\" style=\"font-family:myfont, 'MS PGothic', 'Droid Sans', Meiryo;\">{{Front}}</span>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1425798466916, "css": ".card {\n /* font-family: Meiryo, \"\uff2d\uff33 \uff30\u30b4\u30b7\u30c3\u30af\", \"MS PGothic\", sans-serif; */\n font-family: sans-serif;\n font-size: 15px;\n text-align: center;\n color: black;\n background-color: white;\n}\n\nh1 {\n   font-size: 40px;\n   font-weight:normal;\n}\n\nh3 {\n    padding-left:5px;\n}\n\n.word-card {\n    text-align: left;\n}\n\n.text-left {\n    text-align: left;\n}\n\n.text-center {\n    text-align: center;\n}\n\n.text-right {\n    text-align: right;\n}\n\n.reading-table tr ~ tr > td{\n border-top: 1px solid #DDD;\n}\n\n.pos-desc {\n    color: #007200;\n}\n\ntable.kanji-match{\n    border-collapse: collapse;\n    border: 1px solid #DDD;\n    margin-left: 3rem;\n    float: right;\n}\n\ntable.kanji-match td {\n    border-right: 1px solid #DDD;\n    vertical-align: middle;\n    text-align: center\n}\n\ntr.match-row-kanji, tr.match-row-reading {\n    border-bottom: 1px solid #DDD;\n}\n\n.kanji-big {\n    font-size: 1.5rem;\n    font-weight: normal;\n}\n\n.match-text, .kanji-reading {\n    font-size: 1rem;\n}\n\n.kanji-type, .kanji-grade, .kanji-sample {\n    font-size:0.7rem;\n}\n\n.match-row-type td, .match-row-stat td {\n    padding-top: 0.1rem;\n    padding-bottom: 0.1rem;\n}\n\n.match-row-grade td {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.word-card {\n    text-align: left;\n}\n\n.info-gloss {\n    clear: both;\n}\n\n@font-face { font-family: myfont; src: url('_MSGothic.ttf'); }", "mod": 1514724690}, "1342697875478": {"vers": [], "name": "GenkiSen", "tags": [], "did": 1342697875588, "usn": 0, "req": [[0, "all", [2]]], "flds": [{"name": "Expression", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Mincho", "size": 12}, {"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 12}, {"name": "Reading", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 12}, {"name": "Recall", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Recognition", "qfmt": "<div class=\"sentance mincho\">{{kanji:Reading}}</div>", "did": null, "bafmt": "", "afmt": "<div class=\"sentance mincho\">{{furigana:Reading}}</div>\n<hr id=answer>\n<div class=\"sentance mincho\">{{Meaning}}</div>", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1342697875478, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1552273556}, "1468747180218": {"vers": [], "name": "wkVocab", "tags": [], "did": 1470598766697, "usn": 5502, "req": [[0, "any", [1, 10]], [1, "all", [4]], [2, "all", [0]]], "flds": [{"name": "Spelling", "rtl": false, "sticky": false, "media": [], "ord": 0, "font": "Arial", "size": 20}, {"name": "Meaning", "rtl": false, "sticky": false, "media": [], "ord": 1, "font": "Arial", "size": 20}, {"name": "Level", "rtl": false, "sticky": false, "media": [], "ord": 2, "font": "Arial", "size": 20}, {"name": "Reading", "rtl": false, "sticky": false, "media": [], "ord": 3, "font": "Arial", "size": 20}, {"name": "Audio", "rtl": false, "sticky": false, "media": [], "ord": 4, "font": "Arial", "size": 20}, {"name": "PartOfSpeech", "rtl": false, "sticky": false, "media": [], "ord": 5, "font": "Arial", "size": 20}, {"name": "Eg1En", "rtl": false, "sticky": false, "media": [], "ord": 6, "font": "Arial", "size": 20}, {"name": "Eg1Jp", "rtl": false, "sticky": false, "media": [], "ord": 7, "font": "Arial", "size": 20}, {"name": "Eg2Jp", "rtl": false, "sticky": false, "media": [], "ord": 8, "font": "Arial", "size": 20}, {"name": "Eg2En", "rtl": false, "sticky": false, "media": [], "ord": 9, "font": "Arial", "size": 20}, {"name": "AltMeaning", "rtl": false, "sticky": false, "media": [], "ord": 10, "font": "Arial", "size": 20}], "sortf": 2, "tmpls": [{"name": "English", "qfmt": "<div class=vocab>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}\n</div>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n<hr id=answer>\n<div class=desc>\n\t<span class=meiryo>{{Spelling}}</span><br>\n\t{{Reading}}<br>\n\t{{PartOfSpeech}}<br>\n\n</div>\n\n<div class=sentance>\n\t{{Eg1Jp}}<br>\n\t{{Eg1En}}<br>\n\t{{Eg2En}}<br>\n\t{{Eg2Jp}}<br>\n</div>", "ord": 0, "bqfmt": ""}, {"name": "Audio", "qfmt": "<div class=vocab>\n\t{{Audio}}\n</div>", "did": null, "bafmt": "", "afmt": "\n\n<hr id=answer>\n<div class=desc>\n\t{{Reading}}<br>\n\t<span class=mincho>{{Spelling}}</span><br>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}<br>\n\t{{PartOfSpeech}}<br>\n</div>\n\n<div class=sentance>\n\t{{Eg1En}}<br>\n\t{{Eg1Jp}}<br>\n\t{{Eg2Jp}}<br>\n\t{{Eg2En}}<br>\n</div>", "ord": 1, "bqfmt": ""}, {"name": "Kanji", "qfmt": "<div class=vocab>\n\t<span class=mincho>{{Spelling}}</span>\n</div>", "did": null, "bafmt": "", "afmt": "<div class=vocab>\n\t<span class=mincho>{{Spelling}}</span>\n</div>\n\n<div class=desc\n\t<span class=mincho>{{Reading}}</span><br>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}<br>\n\t{{PartOfSpeech}}<br>\n</div>\n\n<div class=sentance>\n\t{{Eg1En}}<br>\n\t{{Eg1Jp}}<br>\n\t{{Eg2Jp}}<br>\n\t{{Eg2En}}<br>\n</div>", "ord": 2, "bqfmt": ""}], "mod": 1562070516, "latexPost": "\\end{document}", "type": 0, "id": "1468747180218", "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"}, "1498674644626": {"vers": [], "name": "EthSen", "tags": [], "did": 1498760938029, "usn": 0, "req": [[0, "all", [4]], [1, "all", [0]]], "flds": [{"name": "sentence", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "sentence (english)", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "freq ranks", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}, {"name": "difficulty index", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}, {"name": "audio", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Arial", "size": 20}, {"name": "audio (english)", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 20}], "sortf": 3, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Listening", "qfmt": "{{audio}}<br>\n\n", "did": null, "bafmt": "", "afmt": "{{FrontSide}}<br>\n<div class=\"sentance mincho\">{{sentence}}</div>\n<hr id=answer>\n<div class=sentance>{{sentence (english)}}</div>\n\n", "ord": 0, "bqfmt": ""}, {"name": "Reading", "qfmt": "<div class=\"sentance mincho\">{{sentence}}</div>\n\n\n", "did": null, "bafmt": "", "afmt": "\n<div class=\"sentance mincho\">{{sentence}}</div>\n<hr id=answer>\n<div class=sentance>{{sentence (english)}}</div>\n\n", "ord": 1, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1498674644626, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 80px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 30px;\n}\n\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1554090803}, "1356968358402": {"vers": [], "name": "Katakana", "tags": [], "did": 1375337260702, "usn": 0, "req": [[0, "all", [1]], [1, "all", [1]], [2, "all", [1]]], "flds": [{"name": "id", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "MS Shell Dlg 2", "size": 20}, {"name": "katakana", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "MS Shell Dlg 2", "size": 20}, {"name": "romaji", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Courier New", "size": 20}, {"name": "hiragana", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Droid Sans Japanese", "size": 20}, {"name": "pronunciation", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Courier New", "size": 20}, {"name": "stroke_diagram", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Courier New", "size": 20}, {"name": "hint", "media": [], "sticky": false, "rtl": false, "ord": 6, "font": "Arial", "size": 20}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "KatakanaToRoumaji", "qfmt": "<div class=\"card\">\n<span class=\"gothic\">{{katakana}}</span>\n</div>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card gothic\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n", "ord": 0, "bqfmt": ""}, {"name": "Card 2", "qfmt": "<div class=\"card\">\n<span class=\"mincho\">{{katakana}}</span>\n</div>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card mincho\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n", "ord": 1, "bqfmt": ""}, {"name": "Card 3", "qfmt": "<div class=\"card\">\n<span class=\"meiryo\">{{katakana}}</span>\n</div>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card meiryo\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n", "ord": 2, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1356968358402, "css": "div.card {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1516985846}, "1342696498298": {"vers": [], "name": "TkSen", "tags": [], "did": 1342696498657, "usn": 0, "req": [[0, "all", [1]], [1, "all", [2]], [2, "all", [5]]], "flds": [{"name": "Note ID", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Cloze", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Helvetica", "size": 12}, {"name": "Expression", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 12}, {"name": "Definitions", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 12}, {"name": "Kana", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Helvetica", "size": 12}, {"name": "English", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 12}, {"name": "Notes", "media": [], "sticky": false, "rtl": false, "ord": 6, "font": "Arial", "size": 12}, {"name": "Reading", "media": [], "sticky": false, "rtl": false, "ord": 7, "font": "Arial", "size": 12}], "sortf": 6, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Clozed", "qfmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{Cloze}} </div>\n</div>", "did": null, "bafmt": "", "afmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{furigana:Reading}} </div><br>\n\t{{English}}<br>\n</div>", "ord": 0, "bqfmt": ""}, {"name": "Recognition", "qfmt": "<div class=sentance>\n\t<div class=\"meiryo\"> {{Expression}} </div>\n</div>", "did": null, "bafmt": "", "afmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{furigana:Reading}} </div><br>\n\n\t{{English}}<br>\n</div>", "ord": 1, "bqfmt": ""}, {"name": "Translate", "qfmt": "{{English}}", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Expression}}<br>\n{{furigana:Reading}}<br>\n{{Kana}}", "ord": 2, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1342696498298, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 30px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1557735097}, "1342700305974": {"vers": [], "name": "Japanese", "tags": [], "did": 1342700306050, "usn": 0, "req": [[0, "all", [2]], [1, "all", [5]]], "flds": [{"name": "Expression", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Mincho", "size": 12}, {"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 12}, {"name": "Reading", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 12}, {"name": "Ref", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 12}, {"name": "Summary", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Arial", "size": 12}, {"name": "Formation", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 12}, {"name": "Note", "media": [], "sticky": false, "rtl": false, "ord": 6, "font": "Arial", "size": 12}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Sentances", "qfmt": "<span class=\"sentance mincho\">{{kanji:Reading}}</span>\n\n", "did": null, "bafmt": "", "afmt": "<div class=\"sentance mincho\">\n\t{{furigana:Reading}} <br>\n\t{{Meaning}}\n</div>", "ord": 0, "bqfmt": ""}, {"name": "Grammar", "qfmt": "<span class=\"sentance mincho\">{{Formation}}</span>\n\n", "did": null, "bafmt": "", "afmt": "<div class=\"sentance mincho\">\n\t{{Summary}}<br>\n\t{{Note}}\n</div>\n", "ord": 1, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1342700305974, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1552273856}, "1342696092615": {"vers": [], "name": "8547Sentances", "tags": [], "did": 1342696094356, "usn": 0, "req": [[0, "all", [2]]], "flds": [{"name": "Expression", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "MS Shell Dlg 2", "size": 12}, {"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 12}, {"name": "Reading", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Mincho", "size": 12}], "sortf": 0, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Recognition", "qfmt": "<div class=\"sentance mincho\">{{kanji:Reading}}</div>\n\n", "did": null, "bafmt": "", "afmt": "<div class=\"sentance mincho\">{{furigana:Reading}}</div>\n<hr>\n<div class=\"sentance\">{{Meaning}}</div>", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1342696092615, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1554107621}, "1356965744391": {"vers": [], "name": "Hiragana", "tags": [], "did": 1356964036409, "usn": 0, "req": [[0, "all", [1]], [1, "all", [1]], [2, "all", [1]]], "flds": [{"name": "id", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Courier New", "size": 20}, {"name": "hiragana", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Droid Sans Japanese", "size": 20}, {"name": "roumaji", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Courier New", "size": 20}, {"name": "pronunciation", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Courier New", "size": 20}], "sortf": 1, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "HiraganaToRoumaji", "qfmt": "<div class=\"mincho vocab\">{{hiragana}}</div>\n", "did": null, "bafmt": "", "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n", "ord": 0, "bqfmt": ""}, {"name": "Card 2", "qfmt": "<div class=\"gothic vocab\">{{hiragana}}</div>\n", "did": null, "bafmt": "", "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n", "ord": 1, "bqfmt": ""}, {"name": "Card 3", "qfmt": "<div class=\"meiryo vocab\">{{hiragana}}</div>\n", "did": null, "bafmt": "", "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n", "ord": 2, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": 1356965744391, "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1554107643}, "1468747159976": {"vers": [], "name": "wkKanji", "tags": [], "did": 1470596727254, "usn": 0, "req": [[0, "all", [0]]], "flds": [{"name": "Character", "media": [], "sticky": false, "rtl": false, "ord": 0, "font": "Arial", "size": 20}, {"name": "Meaning", "media": [], "sticky": false, "rtl": false, "ord": 1, "font": "Arial", "size": 20}, {"name": "Onyomi", "media": [], "sticky": false, "rtl": false, "ord": 2, "font": "Arial", "size": 20}, {"name": "Kunyomi", "media": [], "sticky": false, "rtl": false, "ord": 3, "font": "Arial", "size": 20}, {"name": "Nanori", "media": [], "sticky": false, "rtl": false, "ord": 4, "font": "Arial", "size": 20}, {"name": "MainReading", "media": [], "sticky": false, "rtl": false, "ord": 5, "font": "Arial", "size": 20}, {"name": "Level", "media": [], "sticky": false, "rtl": false, "ord": 6, "font": "Arial", "size": 20}], "sortf": 6, "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n", "tmpls": [{"name": "Card 1", "qfmt": "<div class=vocab>\n\t<span class=mincho>\n\t\t{{Character}} \n\t</span>\n</div>", "did": null, "bafmt": "", "afmt": "{{FrontSide}}\n\n<hr id=answer>\n<div class=desc>\n\t<div class=mincho>\n\t\t{{Onyomi}} \n\t</div>\n\t<div class=mincho>\n\t\t{{Kunyomi}} \n\t</div>\n{{Meaning}}<br>\n{{Nanori}}<br>\n{{MainReading}}<br>\n</div>\n\n\n\n\n", "ord": 0, "bqfmt": ""}], "latexPost": "\\end{document}", "type": 0, "id": "1468747159976", "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "mod": 1552273813}, "1491307188322": {"vers": [], "name": "TkVocab", "tags": [], "did": 1, "usn": 5502, "req": [[0, "all", [0]], [1, "all", [6]], [2, "all", [1]]], "flds": [{"name": "Kanji", "rtl": false, "sticky": false, "media": [], "ord": 0, "font": "Arial", "size": 20}, {"name": "English", "rtl": false, "sticky": false, "media": [], "ord": 1, "font": "Arial", "size": 20}, {"name": "AltEnglish", "rtl": false, "sticky": false, "media": [], "ord": 2, "font": "Arial", "size": 20}, {"name": "Kana", "rtl": false, "sticky": false, "media": [], "ord": 3, "font": "Arial", "size": 20}, {"name": "WordType1", "rtl": false, "sticky": false, "media": [], "ord": 4, "font": "Arial", "size": 20}, {"name": "WordType2", "rtl": false, "sticky": false, "media": [], "ord": 5, "font": "Arial", "size": 20}, {"name": "Audio", "rtl": false, "sticky": false, "media": [], "ord": 6, "font": "Arial", "size": 20}, {"name": "Level", "rtl": false, "sticky": false, "media": [], "ord": 7, "font": "Arial", "size": 20}], "sortf": 6, "tmpls": [{"name": "Kanji", "qfmt": "<div class=\"vocab mincho\"> \n\t{{Kanji}}  \n</div>", "did": null, "bafmt": "", "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>", "ord": 0, "bqfmt": ""}, {"name": "Audio", "qfmt": "{{Audio}}", "did": null, "bafmt": "", "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>", "ord": 1, "bqfmt": ""}, {"name": "English", "qfmt": "<div class=desc>\n{{English}}\n</dvi>", "did": null, "bafmt": "", "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>", "ord": 2, "bqfmt": ""}], "mod": 1562070529, "latexPost": "\\end{document}", "type": 0, "id": "1491307188322", "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n", "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"}}
+{
+  "1342706442509": {
+    "vers": [],
+    "name": "Core10K",
+    "tags": [],
+    "did": "1381142522860",
+    "usn": 5802,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          2
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          4
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          10
+        ]
+      ],
+      [
+        3,
+        "any",
+        [
+          8,
+          11
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "CoreIndex",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 0,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "Optimized-Voc-Index2k+4kDefault",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 1,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "vocab",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 2,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "vocab-kana",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 3,
+        "font": "MS Shell Dlg 2",
+        "size": 12
+      },
+      {
+        "name": "vocab-translation",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 4,
+        "font": "Liberation Sans",
+        "size": 12
+      },
+      {
+        "name": "part-of-speech",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 5,
+        "font": "Liberation Sans",
+        "size": 12
+      },
+      {
+        "name": "sentence-translation",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 6,
+        "font": "IPAex\u30b4\u30b7\u30c3\u30af",
+        "size": 12
+      },
+      {
+        "name": "vocab-furigana",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 7,
+        "font": "MS Shell Dlg 2",
+        "size": 12
+      },
+      {
+        "name": "sentence",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 8,
+        "font": "MS Shell Dlg 2",
+        "size": 12
+      },
+      {
+        "name": "word-type",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 9,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "vocab-audio",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 10,
+        "font": "Liberation Sans",
+        "size": 12
+      },
+      {
+        "name": "sentence-audio",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 11,
+        "font": "Liberation Sans",
+        "size": 12
+      },
+      {
+        "name": "Notes-Kanjified-vocab",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 12,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "Vocabulary-PitchAccent",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 13,
+        "font": "Liberation Sans",
+        "size": 20
+      },
+      {
+        "name": "wordstructure",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 14,
+        "font": "IPAex\u30b4\u30b7\u30c3\u30af",
+        "size": 20
+      },
+      {
+        "name": "examples",
+        "rtl": false,
+        "sticky": true,
+        "media": [],
+        "ord": 15,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Optimized-Voc-Index2k",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 16,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "vocab-frequency",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 17,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Nukikame-Core6k-Optimized-Voc-Index",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 18,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Notes-MyOwnNote-Production",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 19,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Notes-MyOwnNote-Reading",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 20,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "vocab-rtk",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 21,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "jlptlevel",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 22,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Marked",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 23,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 22,
+    "tmpls": [
+      {
+        "name": "Kanji",
+        "qfmt": "<div class=\"vocab mincho\">{{vocab}}</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n{{vocab-translation}} <br/>\n\t\n\t{{part-of-speech}} <br/>\n\tFreq: {{jlptlevel}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "English",
+        "qfmt": "<div class=\"vocab mincho\">{{vocab-translation}}</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n\t{{vocab-translation}} <br/>\n\t{{part-of-speech}} <br/>\n\tFreq: {{vocab-frequency}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n\n",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Audio",
+        "qfmt": "<div class=\"vocab mincho\">{{vocab-audio}}</div>\n\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"vocab mincho\">{{furigana:vocab-furigana}}</div>\n<div class=\"desc mincho\">\n\t{{vocab-translation}} <br/>\n\t{{part-of-speech}} <br/>\n\tFreq: {{vocab-frequency}}\n</div>\n\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\t{{sentence-translation}}<br/>\n\t{{kanji:examples}}\n</div>\n\n\n",
+        "ord": 2,
+        "bqfmt": ""
+      },
+      {
+        "name": "SentanceAudio",
+        "qfmt": "\n<div class=\"sentance mincho\">\n\t{{kanji:sentence}}<br/>\n\t{{sentence-audio}}<br/>\n</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "\n<div class=\"sentance mincho\">\n\t{{furigana:sentence}}<br/>\n\n</div>\n",
+        "ord": 3,
+        "bqfmt": ""
+      }
+    ],
+    "mod": 1565670183,
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1342706442509,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"
+  },
+  "1455531004306": {
+    "vers": [],
+    "name": "KanjiRTK",
+    "tags": [],
+    "did": 1455531116042,
+    "usn": 5538,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          0
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Kanji",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Onyomi",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kunyomi",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Nanori",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "English",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Examples",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "JLPT Level",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Jouyou Grade",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 7,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Frequency",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 8,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Components",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 9,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Number of Strokes",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 10,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kanji Radical",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 11,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Radical Number",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 12,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Radical Strokes",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 13,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Radical Reading",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 14,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Traditional Form",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 15,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Classification",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 16,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Keyword",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 17,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Koohii Story 1",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 18,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Koohii Story 2",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 19,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "RTK Index (new)",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 20,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 20,
+    "tmpls": [
+      {
+        "name": "Recognition",
+        "qfmt": "<div class = vocab>\n\t<span class=\"mincho\">{{Kanji}}  </span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class = vocab>\n\t<span class=\"mincho\">{{Kanji}}  </span>\n</div>\n\n<div class=\"desc\">\n<span class=\"sentance\">\n\t{{Keyword}}, {{English}}<br>\n\t{{Onyomi}}<br>\n\t{{Kunyomi}}<br>\n\t{{Nanori}}<br>\n</span>\n</div>",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "mod": 1562338410,
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1455531004306,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"
+  },
+  "1491306393950": {
+    "vers": [],
+    "name": "TkAudioSen",
+    "tags": [],
+    "did": 1491306326531,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "any",
+        [
+          0,
+          2,
+          6
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Kanji",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "English",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Section",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Chapter",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Level",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Audio",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 5,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Read",
+        "qfmt": "{{Kanji}}\n<br>\n{{Kana}}\n{{Audio}}",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{English}}\n",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": "1491306393950",
+    "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
+    "mod": 1514724881
+  },
+  "1472225596648": {
+    "vers": [],
+    "name": "SheetMusic",
+    "tags": [],
+    "did": 1516951948619,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          0
+        ]
+      ],
+      [
+        1,
+        "any",
+        [
+          2,
+          3
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          1
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Recto",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Verso",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "String",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Finger",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Image",
+        "qfmt": "{{Recto}}",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n{{Verso}} <br>\n{{String}} <br>\n{{Finger}} <br>\n\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "StringFinger",
+        "qfmt": "{{String}} <br>\n{{Finger}} <br>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{Recto}}",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Note",
+        "qfmt": "{{Verso}} <br>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{Recto}}",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1472225596648,
+    "css": ".card {\n font-family: arial;\n font-size: 40px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
+    "mod": 1516986001
+  },
+  "1459450892726": {
+    "vers": [],
+    "name": "jtest",
+    "tags": [],
+    "did": 1459697216767,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          5
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "English",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Japanese",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Level",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Romanized",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Vocab",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 2,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Card 1",
+        "qfmt": "<div class=\"mincho sentance\">{{Japanese}}</div>\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n<div class=\"meiryo sentance\">{{Romanized}}</div>\n<div class=\"meiryo sentance\">{{English}}</div>\n<div class=\"meiryo sentance\">{{Level}}</div>\n<div class=\"meiryo sentance\">{{Vocab}}</div>\n<div class=\"meiryo sentance\">{{Meaning}}</div>\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Card 2",
+        "qfmt": "<div class=\"meiryo sentance\">{{Vocab}}</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"meiryo sentance\">{{Vocab}}</div>\n<div class=\"meiryo sentance\">{{Meaning}}</div>\n\n\n<div class=\"meiryo sentance\">{{Japanese}}</div>\n<div class=\"meiryo sentance\">{{Romanized}}</div>\n<div class=\"meiryo sentance\">{{English}}</div>\n<div class=\"meiryo sentance\">{{Level}}</div>\n",
+        "ord": 1,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1459450892726,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1552273830
+  },
+  "1352877918558": {
+    "vers": [],
+    "name": "Phrases",
+    "tags": [
+      "HJI-C02,",
+      "arriving"
+    ],
+    "did": 1416468857996,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "any",
+        [
+          1,
+          2
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Pronounciation",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Kana to Meaning",
+        "qfmt": "{{Kana}}\n{{Pronounciation}} \n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Meaning}}<br>\n\n",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1352877918558,
+    "css": ".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
+    "mod": 1514724883
+  },
+  "1425798466916": {
+    "vers": [],
+    "name": "WordKanjiStats",
+    "tags": [],
+    "did": 1426612002472,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          0
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Front",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Back",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Card 1",
+        "qfmt": "<span lang=\"ja\" style=\"font-family:myfont, 'MS PGothic', 'Droid Sans', Meiryo;\">{{Front}}</span>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1425798466916,
+    "css": ".card {\n /* font-family: Meiryo, \"\uff2d\uff33 \uff30\u30b4\u30b7\u30c3\u30af\", \"MS PGothic\", sans-serif; */\n font-family: sans-serif;\n font-size: 15px;\n text-align: center;\n color: black;\n background-color: white;\n}\n\nh1 {\n   font-size: 40px;\n   font-weight:normal;\n}\n\nh3 {\n    padding-left:5px;\n}\n\n.word-card {\n    text-align: left;\n}\n\n.text-left {\n    text-align: left;\n}\n\n.text-center {\n    text-align: center;\n}\n\n.text-right {\n    text-align: right;\n}\n\n.reading-table tr ~ tr > td{\n border-top: 1px solid #DDD;\n}\n\n.pos-desc {\n    color: #007200;\n}\n\ntable.kanji-match{\n    border-collapse: collapse;\n    border: 1px solid #DDD;\n    margin-left: 3rem;\n    float: right;\n}\n\ntable.kanji-match td {\n    border-right: 1px solid #DDD;\n    vertical-align: middle;\n    text-align: center\n}\n\ntr.match-row-kanji, tr.match-row-reading {\n    border-bottom: 1px solid #DDD;\n}\n\n.kanji-big {\n    font-size: 1.5rem;\n    font-weight: normal;\n}\n\n.match-text, .kanji-reading {\n    font-size: 1rem;\n}\n\n.kanji-type, .kanji-grade, .kanji-sample {\n    font-size:0.7rem;\n}\n\n.match-row-type td, .match-row-stat td {\n    padding-top: 0.1rem;\n    padding-bottom: 0.1rem;\n}\n\n.match-row-grade td {\n    padding-top: 0;\n    padding-bottom: 0;\n}\n\n.word-card {\n    text-align: left;\n}\n\n.info-gloss {\n    clear: both;\n}\n\n@font-face { font-family: myfont; src: url('_MSGothic.ttf'); }",
+    "mod": 1514724690
+  },
+  "1342697875478": {
+    "vers": [],
+    "name": "GenkiSen",
+    "tags": [],
+    "did": 1342697875588,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          2
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Expression",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Mincho",
+        "size": 12
+      },
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Reading",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Recall",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Recognition",
+        "qfmt": "<div class=\"sentance mincho\">{{kanji:Reading}}</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"sentance mincho\">{{furigana:Reading}}</div>\n<hr id=answer>\n<div class=\"sentance mincho\">{{Meaning}}</div>",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1342697875478,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1552273556
+  },
+  "1468747180218": {
+    "vers": [],
+    "name": "wkVocab",
+    "tags": [],
+    "did": 1470598766697,
+    "usn": 5502,
+    "req": [
+      [
+        0,
+        "any",
+        [
+          1,
+          10
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          4
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          0
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Spelling",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Meaning",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Level",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Reading",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Audio",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "PartOfSpeech",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Eg1En",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Eg1Jp",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 7,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Eg2Jp",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 8,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Eg2En",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 9,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "AltMeaning",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 10,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 2,
+    "tmpls": [
+      {
+        "name": "English",
+        "qfmt": "<div class=vocab>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n<div class=desc>\n\t<span class=meiryo>{{Spelling}}</span><br>\n\t{{Reading}}<br>\n\t{{PartOfSpeech}}<br>\n\n</div>\n\n<div class=sentance>\n\t{{Eg1Jp}}<br>\n\t{{Eg1En}}<br>\n\t{{Eg2En}}<br>\n\t{{Eg2Jp}}<br>\n</div>",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Audio",
+        "qfmt": "<div class=vocab>\n\t{{Audio}}\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "\n\n<hr id=answer>\n<div class=desc>\n\t{{Reading}}<br>\n\t<span class=mincho>{{Spelling}}</span><br>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}<br>\n\t{{PartOfSpeech}}<br>\n</div>\n\n<div class=sentance>\n\t{{Eg1En}}<br>\n\t{{Eg1Jp}}<br>\n\t{{Eg2Jp}}<br>\n\t{{Eg2En}}<br>\n</div>",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Kanji",
+        "qfmt": "<div class=vocab>\n\t<span class=mincho>{{Spelling}}</span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=vocab>\n\t<span class=mincho>{{Spelling}}</span>\n</div>\n\n<div class=desc\n\t<span class=mincho>{{Reading}}</span><br>\n\t{{Meaning}}<br>\n\t{{AltMeaning}}<br>\n\t{{PartOfSpeech}}<br>\n</div>\n\n<div class=sentance>\n\t{{Eg1En}}<br>\n\t{{Eg1Jp}}<br>\n\t{{Eg2Jp}}<br>\n\t{{Eg2En}}<br>\n</div>",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "mod": 1562070516,
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": "1468747180218",
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"
+  },
+  "1498674644626": {
+    "vers": [],
+    "name": "EthSen",
+    "tags": [],
+    "did": 1498760938029,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          4
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          0
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "sentence",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "sentence (english)",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "freq ranks",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "difficulty index",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "audio",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "audio (english)",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 3,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Listening",
+        "qfmt": "{{audio}}<br>\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}<br>\n<div class=\"sentance mincho\">{{sentence}}</div>\n<hr id=answer>\n<div class=sentance>{{sentence (english)}}</div>\n\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Reading",
+        "qfmt": "<div class=\"sentance mincho\">{{sentence}}</div>\n\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "\n<div class=\"sentance mincho\">{{sentence}}</div>\n<hr id=answer>\n<div class=sentance>{{sentence (english)}}</div>\n\n",
+        "ord": 1,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1498674644626,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 80px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 30px;\n}\n\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1554090803
+  },
+  "1356968358402": {
+    "vers": [],
+    "name": "Katakana",
+    "tags": [],
+    "did": 1375337260702,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          1
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "id",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "katakana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "MS Shell Dlg 2",
+        "size": 20
+      },
+      {
+        "name": "romaji",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Courier New",
+        "size": 20
+      },
+      {
+        "name": "hiragana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Droid Sans Japanese",
+        "size": 20
+      },
+      {
+        "name": "pronunciation",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Courier New",
+        "size": 20
+      },
+      {
+        "name": "stroke_diagram",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Courier New",
+        "size": 20
+      },
+      {
+        "name": "hint",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "KatakanaToRoumaji",
+        "qfmt": "<div class=\"card\">\n<span class=\"gothic\">{{katakana}}</span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card gothic\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Card 2",
+        "qfmt": "<div class=\"card\">\n<span class=\"mincho\">{{katakana}}</span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card mincho\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Card 3",
+        "qfmt": "<div class=\"card\">\n<span class=\"meiryo\">{{katakana}}</span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n{{pronunciation}}\n<div class=\"card meiryo\">\n<hr/>\n<span class=\"large japanese\">{{hiragana}}</span>\n<hr/>\n<span class=\"large\">{{romaji}}</span>\n<hr/>\n{{stroke_diagram}}\n<br/>\n<span class=\"normal\">My hint: {{hint}}</span>\n<br/>\n<span class=\"normal\">\n<a href=\"http://en.wikipedia.org/wiki/{{romaji}}_(kana)\">\nwiki\n</a>\n</span>\n</div>\n",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1356968358402,
+    "css": "div.card {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1516985846
+  },
+  "1342696498298": {
+    "vers": [],
+    "name": "TkSen",
+    "tags": [],
+    "did": 1342696498657,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          2
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          5
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Note ID",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Cloze",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Helvetica",
+        "size": 12
+      },
+      {
+        "name": "Expression",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Definitions",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Kana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Helvetica",
+        "size": 12
+      },
+      {
+        "name": "English",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Notes",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 6,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Reading",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 7,
+        "font": "Arial",
+        "size": 12
+      }
+    ],
+    "sortf": 6,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Clozed",
+        "qfmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{Cloze}} </div>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{furigana:Reading}} </div><br>\n\t{{English}}<br>\n</div>",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Recognition",
+        "qfmt": "<div class=sentance>\n\t<div class=\"meiryo\"> {{Expression}} </div>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=sentance>\n\t<div class=\"mincho\"> {{furigana:Reading}} </div><br>\n\n\t{{English}}<br>\n</div>",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Translate",
+        "qfmt": "{{English}}",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Expression}}<br>\n{{furigana:Reading}}<br>\n{{Kana}}",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1342696498298,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 30px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1557735097
+  },
+  "1342700305974": {
+    "vers": [],
+    "name": "Japanese",
+    "tags": [],
+    "did": 1342700306050,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          2
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          5
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Expression",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Mincho",
+        "size": 12
+      },
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Reading",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Ref",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Summary",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Formation",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Note",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 6,
+        "font": "Arial",
+        "size": 12
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Sentances",
+        "qfmt": "<span class=\"sentance mincho\">{{kanji:Reading}}</span>\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"sentance mincho\">\n\t{{furigana:Reading}} <br>\n\t{{Meaning}}\n</div>",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Grammar",
+        "qfmt": "<span class=\"sentance mincho\">{{Formation}}</span>\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"sentance mincho\">\n\t{{Summary}}<br>\n\t{{Note}}\n</div>\n",
+        "ord": 1,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1342700305974,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1552273856
+  },
+  "1342696092615": {
+    "vers": [],
+    "name": "8547Sentances",
+    "tags": [],
+    "did": 1342696094356,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          2
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Expression",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "MS Shell Dlg 2",
+        "size": 12
+      },
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 12
+      },
+      {
+        "name": "Reading",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Mincho",
+        "size": 12
+      }
+    ],
+    "sortf": 0,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Recognition",
+        "qfmt": "<div class=\"sentance mincho\">{{kanji:Reading}}</div>\n\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=\"sentance mincho\">{{furigana:Reading}}</div>\n<hr>\n<div class=\"sentance\">{{Meaning}}</div>",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1342696092615,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1554107621
+  },
+  "1356965744391": {
+    "vers": [],
+    "name": "Hiragana",
+    "tags": [],
+    "did": 1356964036409,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          1
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          1
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "id",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Courier New",
+        "size": 20
+      },
+      {
+        "name": "hiragana",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Droid Sans Japanese",
+        "size": 20
+      },
+      {
+        "name": "roumaji",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Courier New",
+        "size": 20
+      },
+      {
+        "name": "pronunciation",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Courier New",
+        "size": 20
+      }
+    ],
+    "sortf": 1,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "HiraganaToRoumaji",
+        "qfmt": "<div class=\"mincho vocab\">{{hiragana}}</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Card 2",
+        "qfmt": "<div class=\"gothic vocab\">{{hiragana}}</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "Card 3",
+        "qfmt": "<div class=\"meiryo vocab\">{{hiragana}}</div>\n",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{pronunciation}}\n<div class=\"mincho vocab\">{{hiragana}}</div>\n<hr/>\n<div class=\"mincho vocab\">{{roumaji}}</div>\n",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": 1356965744391,
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1554107643
+  },
+  "1468747159976": {
+    "vers": [],
+    "name": "wkKanji",
+    "tags": [],
+    "did": 1470596727254,
+    "usn": 0,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          0
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Character",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Meaning",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Onyomi",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kunyomi",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Nanori",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "MainReading",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Level",
+        "media": [],
+        "sticky": false,
+        "rtl": false,
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 6,
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n",
+    "tmpls": [
+      {
+        "name": "Card 1",
+        "qfmt": "<div class=vocab>\n\t<span class=mincho>\n\t\t{{Character}} \n\t</span>\n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "{{FrontSide}}\n\n<hr id=answer>\n<div class=desc>\n\t<div class=mincho>\n\t\t{{Onyomi}} \n\t</div>\n\t<div class=mincho>\n\t\t{{Kunyomi}} \n\t</div>\n{{Meaning}}<br>\n{{Nanori}}<br>\n{{MainReading}}<br>\n</div>\n\n\n\n\n",
+        "ord": 0,
+        "bqfmt": ""
+      }
+    ],
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": "1468747159976",
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "mod": 1552273813
+  },
+  "1491307188322": {
+    "vers": [],
+    "name": "TkVocab",
+    "tags": [],
+    "did": 1,
+    "usn": 5502,
+    "req": [
+      [
+        0,
+        "all",
+        [
+          0
+        ]
+      ],
+      [
+        1,
+        "all",
+        [
+          6
+        ]
+      ],
+      [
+        2,
+        "all",
+        [
+          1
+        ]
+      ]
+    ],
+    "flds": [
+      {
+        "name": "Kanji",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 0,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "English",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 1,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "AltEnglish",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 2,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Kana",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 3,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "WordType1",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 4,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "WordType2",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 5,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Audio",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 6,
+        "font": "Arial",
+        "size": 20
+      },
+      {
+        "name": "Level",
+        "rtl": false,
+        "sticky": false,
+        "media": [],
+        "ord": 7,
+        "font": "Arial",
+        "size": 20
+      }
+    ],
+    "sortf": 6,
+    "tmpls": [
+      {
+        "name": "Kanji",
+        "qfmt": "<div class=\"vocab mincho\"> \n\t{{Kanji}}  \n</div>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>",
+        "ord": 0,
+        "bqfmt": ""
+      },
+      {
+        "name": "Audio",
+        "qfmt": "{{Audio}}",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>",
+        "ord": 1,
+        "bqfmt": ""
+      },
+      {
+        "name": "English",
+        "qfmt": "<div class=desc>\n{{English}}\n</dvi>",
+        "did": null,
+        "bafmt": "",
+        "afmt": "<div class=vocab>\n\t<span class = mincho>{{Kanji}}  </span>\n</div>\n\n<div class=desc>\n\t{{English}}<br>\n\t{{Kana}}<br>\n\t{{AltEnglish}}<br>\n\t{{WordType1}}<br>\n\t{{WordType2}}\n</div>",
+        "ord": 2,
+        "bqfmt": ""
+      }
+    ],
+    "mod": 1562070529,
+    "latexPost": "\\end{document}",
+    "type": 0,
+    "id": "1491307188322",
+    "css": ".vocab {\n\ttext-align:center;\n\tfont-size: 40px;\n}\n\n.desc {\n\ttext-align:center;\n\tfont-size: 30px;\n}\n.sentance {\n\ttext-align:left;\n\tfont-size: 20px;\n}\nimg {\n  width: auto;\n  height: auto;\n  max-width: 400px;\n  max-height: 400px;\n}\n.gothic { font-family: gothic; }\n.mincho { font-family: mincho; }\n.meiryo { font-family: meiryo; }\n\n@font-face { font-family: gothic; src: url('_MSGothic.ttf'); }\n@font-face { font-family: meiryo; src: url('_Meiryo.ttf'); }\n@font-face { font-family: mincho; src: url('_msmincho.ttf'); }\n",
+    "latexPre": "\\documentclass[12pt]{article}\n\\special{papersize=3in,5in}\n\\usepackage[utf8]{inputenc}\n\\usepackage{amssymb,amsmath}\n\\pagestyle{empty}\n\\setlength{\\parindent}{0in}\n\\begin{document}\n"
+  }
+}
