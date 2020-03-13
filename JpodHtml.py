@@ -4,13 +4,10 @@ import pandas as pd
 import os
 import requests
 import csv
+from Utils.windows import *
 from joblib import Parallel, delayed
+import JpodHtmlParser as jhp
 
-
-def downloadFile(url: str, dest: str):
-    if not os.path.exists(dest):
-        r = requests.get(url, allow_redirects=True)
-        open(dest, 'wb').write(r.content)
 class JpodParser:
     def parseJodLevelDump(self, fileNameNoExt, level):
         data = pd.read_csv(f"c:/japanese/{fileNameNoExt}.csv")
@@ -20,37 +17,6 @@ class JpodParser:
                 r = requests.get(url, allow_redirects=True)
                 open(dest, 'wb').write(r.content)
 
-        def toxml(weirdhtmloutput):
-            html = weirdhtmloutput.replace('"<', '"').replace('>"', '"')
-            return ET.fromstring(f'<a>{html}</a>')
-
-        def getsen(html):
-            if pd.isnull(html):
-                return None
-            def datatext(s):
-                xml = toxml(s)
-                return xml[0][0].attrib['data-text']
-            def singleline(s):
-                xml = toxml(s)
-                return xml[0].text
-            def fromfinal(s):
-                return re.match('<td class[^<]*?lang=\".*?\">.*</td>', s)
-            for f in [datatext, singleline, fromfinal]:
-                try:
-                    return f(html)
-                except:
-                    pass
-            return None
-
-        def getmp3(html):
-            if pd.isnull(html):
-                return None
-            try:
-                xml = toxml(html)
-                return xml[0][0].attrib['data-url']
-            except:
-                return None
-
         def getseason(row):
             season = re.findall('.*/(.*?)/', row['pathways-href'])[0]
             return re.sub(r'\W+', '', season)
@@ -59,9 +25,9 @@ class JpodParser:
             lesson = re.findall('(.*?)\s*\n', row['lesson'])[0]
             return re.sub(r'\W+', '', lesson)
 
-        data['japanese'] = data.apply(lambda row: getsen(row['kanjisen']), axis=1)
-        data['mp3Url'] = data.apply(lambda row: getmp3(row['kanjisen']) or getmp3(row['engsen']), axis=1)
-        data['english'] = data.apply(lambda row: getsen(row['engsen']), axis=1)
+        data['japanese'] = data.apply(lambda row: jhp.getsen(row['kanjisen']), axis=1)
+        data['mp3Url'] = data.apply(lambda row: jhp.getmp3(row['kanjisen']) or getmp3(row['engsen']), axis=1)
+        data['english'] = data.apply(lambda row: jhp.getsen(row['engsen']), axis=1)
         data['lesson2'] = data.apply(getlesson, axis=1)
         data['season'] = data.apply(getseason, axis=1)
 
