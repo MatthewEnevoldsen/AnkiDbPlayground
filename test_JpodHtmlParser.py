@@ -11,8 +11,7 @@ class TestJpodHtmlParser(TestCase):
             <button type="button" class="js-lsn3-play-dialogue" title="Play" aria-label="Play" data-src="https://cdn.innovativelanguage.com/japanesepod101/learningcenter/audio/transcript_2423/6.mp3" data-type="audio/mp3"></button>
         </td><td class="lsn3-lesson-dialogue__td--name">B:</td><td class="lsn3-lesson-dialogue__td--text" lang="ja">"The Rules"??　もりさんのですか。</td>'''
         exp = '"The Rules"??　もりさんのですか。'
-        parser = jp.JpodHtmlParser()
-        res = parser.getsen(str)
+        res = jp.getsen(str)
         self.assertEqual(exp, res)
 
     def test_getmpr(self):
