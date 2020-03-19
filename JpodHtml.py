@@ -52,7 +52,7 @@ class JpodToAnki:
         m['transid'] = m.apply(lambda row: int(re.findall('transcript_(\d*)', row['mp3Url'])[0]), axis=1)
         m['dialogid'] = m.apply(lambda row: int(re.findall('(\d*)\\.mp3', row['mp3Url'])[0]), axis=1)
         m['filename'] = m.apply(lambda r: f"{r['season']}_{r['lesson']}_{r['transid']}_{r['dialogid']}.mp3", axis=1)
-        m['tags'] = m.apply(lambda r: f"JPod {level} {r['season']} {r['lesson']}", axis=1)
+        m['tags'] = m.apply(lambda r: f"JPod {level} JPod_Season_{r['season']} JPod_Lesson_{r['lesson']}", axis=1)
         m['ankiaudio'] = m.apply(lambda r: f"[sound:{r['filename']}]", axis=1)
         m['ankiid'] = m.apply(lambda row: int(row['transid']) * 1000 + int(row['dialogid']), axis=1)
         m.sort_values(['season', 'lesson', 'transid', 'dialogid'], inplace=True)
