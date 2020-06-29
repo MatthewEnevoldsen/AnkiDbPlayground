@@ -21,7 +21,6 @@ class AnkiDbHelper:
         self.session = db.session
         self.dbReader = AnkiDbReader(db)
 
-
     def archiveRevlog(self):
         #     CREATEy TABLE revlog (
         #     id              integer primary key,
@@ -56,20 +55,20 @@ class AnkiDbHelper:
         # moveCards(session, Col, Notes, Cards, Revlog, "Core10K", "SentanceAudio", "AllSentences", "Audio",
         # lambda s: s[0], lambda s: stripTags(s[7]))
 
-        fromCardOrd = self.getNoteCardDefs(fromNote)[fromCard]
-        toCardOrd = self.getNoteCardDefs(toNote)[toCard]
+        fromCardOrd = self.dbReader.getCardDefs(fromNote)[fromCard]
+        toCardOrd = self.dbReader.getCardDefs(toNote)[toCard]
 
         toNotesDict = dict()
-        for n in self.getNotesOfType(toNote):
+        for n in self.dbReader.getNotesOfType(toNote):
             flds = self.getFields(n.flds)
             toNotesDict[toKey(flds)] = n
 
-        for n in self.getNotesOfType(fromNote):
+        for n in self.dbReader.getNotesOfType(fromNote):
             flds = self.getFields(n.flds)
             key = fromKey(flds)
             if key in toNotesDict:
-                deadCard = self.cardFromNote(n, fromCardOrd)
-                nextCard = self.cardFromNote(toNotesDict[key], toCardOrd)
+                deadCard = self.dbReader.cardFromNote(n, fromCardOrd)
+                nextCard = self.dbReader.cardFromNote(toNotesDict[key], toCardOrd)
                 self.mergeInCard(deadCard, nextCard)
                 self.session.delete(deadCard)
         self.session.commit()
@@ -79,7 +78,7 @@ class AnkiDbHelper:
         # moveCards(session, Col, Notes, Cards, Revlog, "Core10K", "SentanceAudio", "AllSentences", "Audio",
         # lambda s: s[0], lambda s: stripTags(s[7]))
         toNotesDict = dict()
-        for n in self.getNotesOfType(notename):
+        for n in self.dbReader.getNotesOfType(notename):
             flds = self.getFields(n.flds)
             key = keyyer(flds)
             if key in toNotesDict:
@@ -102,29 +101,23 @@ class AnkiDbHelper:
             # n1.flds = self.toFields(newflds)
             # n2.flds = self.toFields(newflds)
             # self.session.commit()
-            for o in range(len(self.getNoteCardDefs(notename))):
-                cards1 = self.cardFromNote(n1, o)
-                cards2 = self.cardFromNote(n2, 0)
+            for o in range(len(self.dbReader.getCardDefs(notename))):
+                cards1 = self.dbReader.cardFromNote(n1, o)
+                cards2 = self.dbReader.cardFromNote(n2, 0)
                 self.mergeInCard(cards1, cards2)
                 self.session.delete(cards1)
                 self.session.commit()
 
-    def cardFromNote(self, note, ord):
-        return next(x for x in self.session.query(self.cards).filter(self.cards.nid == note.id).all() if x.ord == ord)
-
-    def cardsFromNote(self, note):
-        return self.session.query(self.cards).filter(self.cards.nid == note.id).all()
-
     def cardCount(self, notename):
-        noteid = self.getNoteId(notename)
+        noteid = self.dbReader.getNoteId(notename)
         return len(self.session.query(self.cards).filter(self.cards.nid == noteid).all())
 
     def mergeCardsFromSameNote(self, note: str, deadcard: str, newcard: str):
-        cn = self.getNoteCardDefs(note)
+        cn = self.dbReader.getCardDefs(note)
         dead = cn[deadcard]
         target = cn[newcard]
         allDead = list()
-        for note in self.getNotesOfType(note):
+        for note in self.dbReader.getNotesOfType(note):
             ethCards = list(self.session.query(self.cards).filter(self.cards.nid == note.id).all())
             deadCard = list(filter(lambda c: c.ord == dead, ethCards))[0]
             targetCard = list(filter(lambda c: c.ord == target, ethCards))[0]
@@ -163,61 +156,122 @@ class AnkiDbHelper:
             # print (f"review {review.id} changing {review.cid} to {targetCard.id}")
             review.cid = targetCard.id
 
-    def getNotesOfType(self, noteName: str):
-        nid = self.getNoteId(noteName)
-        return list(self.session.query(self.notes).filter(self.notes.mid == nid).all())
-
-    def getNoteId(self, noteName: str):
-        return self.getNoteDef(noteName).id
-
-    def getNoteCardDefs(self, noteName: str):
-        cards = self.getNoteDef(noteName).tmpls
-        return {c.name: c.ord for c in cards}
-
-    def getNoteDef(self, noteName: str):
-        def _json_object_hook(d):
-            return namedtuple('X', d.keys())(*d.values())
-
-        def json2obj(data):
-            return json.loads(data, object_hook=_json_object_hook)
-
-        models = list(self.session.query(self.col))[0].models
-        noteDefs = json2obj(re.sub('\"(\d+)\":', '\"Id\\1\":', models))
-        return list(filter(lambda i: i.name.lower() == noteName.lower(), noteDefs))[0]
-
     def reindex(self, notename: str, field: str = 'Id', force: bool = False):
         notes = self.dbReader.getNotesOfType(notename)
         id = self.dbReader.getNoteFields(notename)[field]
         for i in range(len(notes)):
             n = notes[i]
-            #if force or self.dbReader.getField(n.flds, id) == '':
+            # if force or self.dbReader.getField(n.flds, id) == '':
             if 'sen' in self.dbReader.getField(n.flds, id):
                 self.updateField(n, id, str(1000000000 + i))
         self.session.commit()
 
+    def move10ktoedict(self):
+        wordtocard = {self.dbReader.getFields(n.flds)[0]: self.dbReader.cardFromNote(n, 0) for n in self.dbReader.getNotesOfType('EdictVocab')}
 
+        core10kvocabdeckid = 1495451679055
+        edicttempdeckid = 1592774635155
+        for n in self.dbReader.getNotesOfType('Core10K'):
+            core10kcard = self.dbReader.cardFromNote(n, 0)
+            word = self.dbReader.getFields(n.flds)[1].strip('~').strip('～').strip('<br>')
+
+            if core10kcard.did == core10kvocabdeckid: #core10k deck id
+                if word in wordtocard:
+                    if wordtocard[word].did == core10kvocabdeckid:
+                        core10kcard.did = edicttempdeckid
+                        core10kcard.queue = -1
+                    else:
+                        core10kid = core10kcard.nid
+                        core10kcard.nid = wordtocard[word].nid
+                        wordtocard[word].nid = core10kid
+                        #now we've switched so this is for the core10kcard
+                        wordtocard[word].queue = -1  # suspend
+        self.session.commit()
 
     def Tag10K(self, path: str, tags: List[str]):
-        notes = self.getNotesOfType('Core10K')
+        notes = self.dbReader.getNotesOfType('Core10K')
         text = open(path, "r", encoding="UTF-8").read()
         for note in notes:
-            vocab = self.get10KVocab(note.flds)
+            vocab = self.dbReader.get10KVocab(note.flds)
             if vocab in text:
                 for tag in tags:
                     if not tag in note.tags:
                         note.tags = f"{note.tags} {tag} "
         self.session.commit()
 
-    def Unsuspend10k(self, path: str):
-        notes = self.getNotesOfType('Core10K')
-        text = open(path, "r", encoding="UTF-8").read()
+    emptyfurireg = re.compile(r'\[\]')
+
+    def remove_bad_furi(self):
+        def fix(nn, fn):
+            ind = self.dbReader.getNoteFields(nn)[fn]
+            for n in self.dbReader.getNotesOfType(nn):
+                vocab = self.dbReader.getField(n.flds, ind)
+                new = AnkiDbHelper.emptyfurireg.sub('', vocab)
+                if new != vocab:
+                    self.updateField(n, ind, new)
+
+        fix('Core10K', 'VocabFuri')
+        self.session.commit()
+        fix('AllSentences', 'Japanese')
+        self.session.commit()
+
+    def suspend_unseen(self):
+        def getcards(n):
+            return set(self.session.query(self.cards).filter(self.cards.nid == n.id).all())
+        count = 0
+        for n in self.dbReader.get_vocab_notes():
+            cards = getcards(n)
+            if sum(c.reps for c in cards) == 0:
+                for c in cards:
+                    if c.queue == 0:
+                        c.queue = -1
+                        count = count + 1
+        self.session.commit()
+        return count
+
+    def Unsuspend10k(self, path: str, max: int = 9999999):
+        notes = self.dbReader.getNotesOfType('Core10K')
+        text = open(path, "r", encoding="UTF-8").read()[0: max]
+        count = 0
         for note in notes:
-            vocab = self.get10KVocab(note.flds)
-            if vocab in text:
-                for c in self.cardsFromNote(note):
+            vocab = self.dbReader.get10KVocab(note.flds)
+            if sum(1 for v in vocab.baseVocab() if v in text) > 0:
+                for c in self.dbReader.cardsFromNote(note):
                     if c.queue == -1:
                         c.queue = 0
+                        count = count + 1
         self.session.commit()
+        return count
+
+    def UnsuspendSeen(self):
+        notes = self.dbReader.getNotesOfType('Core10K')
+        count = 0
+        for note in notes:
+            cards = self.dbReader.cardsFromNote(note)
+            if sum(c.reps for c in cards) > 0:
+                for c in cards:
+                    if c.queue == -1:
+                        c.queue = 0
+                        count = count + 1
+        self.session.commit()
+        return count
+
+    def negativeCards(self):
+        notes = self.dbReader.getNotesOfType('Kanji')
+        count = 0
+        for note in notes:
+            for c in self.dbReader.cardsFromNote(note):
+                if c.type == 3:
+                    if c.left % 1000 > 10:
+                        count = count + 1
+                        c.left = c.left - c.left % 1000 + 10
+                else:
+                    if c.left % 1000 > 20:
+                        count = count + 1
+                        c.left = c.left - c.left % 1000 + 20
+                #c.queue = 0
+        self.session.commit()
+        return count
 
     def addTag(note, tag):
         if not tag in note.tags.split(' '):
@@ -237,9 +291,6 @@ class AnkiDbHelper:
                 if not tag in note.tags:
                     note.tags = f"{note.tags} {tag} "
         self.session.commit()
-
-    def get10KVocab(self, flds: str):
-        return self.ankiStrings.toBaseVocab(self.getField(flds, 1))
 
     def SingleTag10K(self, paths: List[str], tag: str):
         texts = []
