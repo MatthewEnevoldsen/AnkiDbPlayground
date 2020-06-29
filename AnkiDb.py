@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 class AnkiDb:
     def __init__(self):
         #dbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.anki2"
-        dbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.anki2.pycharm"
+        dbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.ank2.pycharm"
         Base = automap_base()
         engine = create_engine(f"sqlite:///{dbPath}")
         Base.prepare(engine, reflect=True)

@@ -52,32 +52,37 @@ def fuckWithStuff():
 
 def buildSenDict(db):
     r = AnkiDbReader(db)
-    sentences = [s for s in r.getAllSentences() if s.id < 1000000000]
-    japengdict = jdp.getsentencedict()
-    senVocab: Dict[str, List[str]] = {s.id: list() for s in sentences}
-    for s in sentences:
-        allwords = Tokeniser.splittowords(s.jap, japengdict)
+    sentences = [s for s in r.getNextWeekSentences()]#r.getAllSentences()]# if s.id < 1000000000]
+    merged = jdp.getmergedentries()
+    japengdict: Dict[str,str] = jdp.getconjtoword(merged)
+
+    def getwords(sen) -> List[str]:
+        allwords = Tokeniser.splittowords(sen, japengdict)
         uniquewords = []
         for w in allwords:
-            if w not in uniquewords:
-                uniquewords.append(w)
-        senVocab[s.id] = uniquewords
-    result = {sen: '\n\n'.join((japengdict[word] for word in words)) for sen, words in senVocab.items()}
+            baseform = japengdict[w]
+            if baseform not in uniquewords:
+                uniquewords.append(baseform)
+        return uniquewords
+    senVocab: Dict[str, List[str]] = {s.id: getwords(s.jap) for s in sentences}
+
+    sentowords = {sen: '\n\n'.join((jdp.formatentries(merged[word], 4) for word in words)) for sen, words in senVocab.items()}
+
     fcd = jdp.getfcdict()
-
     allwords = {v for vocab in senVocab.values() for v in vocab}
+    limitedfcdict = {w: fcd[w] for w in allwords if w in fcd}
 
 
 
-    limitedfcdict = {w: japengdict[w] for w in allwords if w in fcd}
 
-    
-    df2 = pd.DataFrame.from_dict(limitedfcdict, orient='index')
-
-    df = pd.DataFrame.from_dict(result, orient='index')
-    #df['sen'] = df.apply(lambda r: sentences[int(r[0])].jap)
+    df = pd.DataFrame.from_dict(sentowords, orient='index')
     df.to_csv('c:/japanese/sentenceWithEDict.csv', header=False)
+    df2 = pd.DataFrame.from_dict(limitedfcdict, orient='index')
     df2.to_csv('c:/japanese/jpodmissingvocab.csv', header=False)
+
+    #emptydicts = {sen: '...' for sen, words in senVocab.items()}
+    #dfclear = pd.DataFrame.from_dict(emptydicts, orient='index')
+    #dfclear.to_csv('c:/japanese/clearsentencedicts.csv', header=False)
 fuckWithStuff()
 
 

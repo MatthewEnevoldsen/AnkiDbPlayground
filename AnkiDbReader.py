@@ -1,6 +1,7 @@
 import json
 import re
 from collections import namedtuple
+from datetime import datetime
 from typing import List, Set, Dict
 
 from AnkiDb import AnkiDb
@@ -98,6 +99,17 @@ class AnkiDbReader:
 
     def getAllSentences(self):
         return [self.getSentence(n.flds) for n in self.getNotesOfType('AllSentences')]
+
+    def getNextWeekSentences(self):
+        oneweekfromtodayinanki = (datetime.utcnow() - datetime(1970,1,1)).days - 17001 + 17 + 7
+        def isCardDueInNetWeek(n) -> bool:
+            for c in self.cardsFromNote(n):
+                if c.queue in [0, 1, 3]:
+                    return True
+                if c.queue == 2 and c.due < oneweekfromtodayinanki:
+                    return True
+            return False
+        return [self.getSentence(n.flds) for n in self.getNotesOfType('AllSentences') if isCardDueInNetWeek(n)]
 
     def allVocab(self) -> List[AnkiVocab]:
         return [AnkiVocab(n.flds) for n in self.getNotesOfType('Core10K')]

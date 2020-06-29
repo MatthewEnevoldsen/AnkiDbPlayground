@@ -14,6 +14,12 @@ class EdictEntry:
     p: bool
     usuallykana: bool
     usuallykanji: bool
+    id: int
+
+    def __hash__(self):
+        return self.id
+    def __eq__(self, other):
+        return self.id == other.id
 
 @dataclass()
 class VocabDeck:
@@ -135,8 +141,8 @@ def getwordconjugations(word:str, pos:str) -> Set[str]:
                   'adj-i': ['さ','く','げ','な','か','くない','くなかった','くなく',],
                   'adj-s': ['さ','く','げ','な','か','くない','くなかった','くなく',],
                   }
-    nounEndings = {'n':['だった','だって','の', 'は', 'が', 'に', 'を', 'と'],
-                   'n-adv': ['だった', 'だって', 'な', 'を', 'と'],
+    nounEndings = {'n':['だった','だって','の','も', 'は', 'が', 'に', 'を', 'と','で'],
+                   'n-adv': ['だった', 'だって', 'な', 'を', 'と','で'],
                    }
     suruends = ['します','しません','した','して','してる','しました','しませんでした','させる','させない','される','されない','しろ','するな']
     #if 'uk' in s and len(kana) > 0:
@@ -170,86 +176,93 @@ def getEntires() -> List[EdictEntry]:
     usuallykanareg = re.compile(r'\(uk\)')
     usuallykanjireg = re.compile(r'\(uK\)')
 
-    def splitter(s: str) -> EdictEntry:
+
+    def splitter(s: str, id: int) -> EdictEntry:
+        def cleararch(ss: List[str]):
+            return [x for x in ss if '(arch)' not in x]
+        def cleartag(s: str):
+            return  clearTagREg.sub('', s)
+        def cleartagarr(s: List[str]):
+            return [cleartag(x) for x in s]
+
+
         match = reg.search(s)
         p = preg.search(s) is not None
         usuallykana = usuallykanareg.search(s) is not None
         usuallykanji = usuallykanjireg.search(s) is not None
-        kanji = clearTagREg.sub('', match.group('kanji')).split(';')
+        kanji = cleartagarr(cleararch(match.group('kanji').split(';')))[0:2]
         if match.group('kana'):
-            kana = clearTagREg.sub('', match.group('kana')).split(';')
+            kana = cleartagarr(match.group('kana').split(';'))[0:1]
         else:
             kana = []
         pos = match.group('pos').split(',')
-        eng = re.split('\(\d+\)', match.group('eng'))
-
-        return EdictEntry(kanji, kana, pos, eng, p, usuallykana, usuallykanji)
+        eng = cleararch(re.split('\(\d+\)', match.group('eng')))
+        return EdictEntry(kanji, kana, pos, eng, p, usuallykana, usuallykanji, id)
 
     with open(path, "r", encoding='utf-8') as f:
-        return list(splitter(l) for l in f.readlines())
+        res = []
+        id = 0
+        for l in f.readlines():
+            id += 1
+            entry = splitter(l, id)
+            if len(entry.kana + entry.kanji) > 0 and len(entry.engdefs) > 0:
+                res.append(entry)
+        return res
 
-def getmergedentries() ->Dict[str, List[EdictEntry]] :
+
+def getmergedentries() -> Dict[str, Set[EdictEntry]]:
     entries = getEntires()
-    wordstoentries: Dict[str, List[EdictEntry]] = dict()
+    wordtoentries: Dict[str, Set[EdictEntry]] = dict()
+    entrytoword: Dict[EdictEntry, Set[str]] = dict()
+
     for e in entries:
-        for k in e.kanji:
-            if k in wordstoentries:
-                wordstoentries[k].append(e)
-            else:
-                wordstoentries[k] = [e]
-    for e in entries:
-        if e.usuallykana:
-            for k in e.kana:
-                if k in wordstoentries:
-                    wordstoentries[k].append(e)
-                else:
-                    wordstoentries[k] = [e]
-    return wordstoentries
+        existingwords = {w for w in e.kanji if w in wordtoentries}
+        existingentries = {entry for w in existingwords for entry in wordtoentries[w]}
+        for word in existingwords:
+            del wordtoentries[word]
+        for entry in existingentries:
+            del entrytoword[entry]
+        existingentries.add(e)
+        for w in e.kana + e.kanji:
+            existingwords.add(w)
+        for ee in existingentries:
+            entrytoword[ee] = existingwords
+        for w in existingwords:
+            wordtoentries[w] = existingentries
+
+    return wordtoentries
 
 def getfcdict() -> Dict[str, str]:
-    wordstoentries = getmergedentries()
-    def multientry(word: str, es: List[EdictEntry]):
-        def singleentry(word: str, edict: EdictEntry):
-            alt = set(edict.kanji) - {word}
-            q = '"'
-            qq = '""'
-            return f'{word} {" ".join(alt)} {" ".join(edict.kana)} {" ".join(edict.pos)}: {" ".join(d.replace(q,qq) for d in  edict.engdefs)}'
-        return '\n'.join(singleentry(word, e) for e in es)
-    return {k: multientry(k, v) for k, v in wordstoentries.items()}
+    return {k: formatentries(v, 100) for k, v in getmergedentries().items()}
 
-def getsentencedict() -> Dict[str, str]:
-    entries = getEntires()
-    result: Dict[str, List[EdictEntry]] = dict()
-    def addorappend(w, e):
-        if w in result:
-            result[w].append(e)
-        else:
-            result[w] = [e]
-    def addifempty(w, e):
-        if w not in result:
-            result[w] = [e]
+def getconjtoword(merged) -> Dict[str, str]:
+    merged = merged or getmergedentries()
+    conjtodictword: Dict[str, str] = dict()
     # main word
-    for e in entries:
-        for p in e.pos:
-            for c in getwordconjugations(e.kanji[0], p):
-                addorappend(c, e)
-    # other forms
-    for e in entries:
-        for w in e.kanji[1:] + e.kana:
+    for w, es in merged.items():
+        for e in es:
             for p in e.pos:
-                for c in getwordconjugations(w, p):
-                    addifempty(c, e)
+                for c in getwordconjugations(e.kanji[0], p):
+                    if c not in conjtodictword:
+                        conjtodictword[c] = w
+    # other forms
+    for w, entries in merged.items():
+        for e in entries:
+            for writing in e.kanji[1:] + e.kana:
+                for p in e.pos:
+                    for c in getwordconjugations(writing, p):
+                        if c not in conjtodictword:
+                            conjtodictword[c] = w
 
-    def multientry(word: str, es: List[EdictEntry]):
-        def singleentry(word: str, edict: EdictEntry):
-            dictforms = list(edict.kanji + edict.kana)
-            main = edict.kanji[0]
-            for writing in dictforms:
-                if writing in word:
-                    main = writing
-            dictforms.remove(main)
-            q = '"'
-            qq = '""'
-            return f'{" ".join([main] + dictforms)} {" ".join(edict.pos)}: {" ".join(d.replace(q,qq) for d in  edict.engdefs[0:4])}'
-        return '\n'.join({singleentry(word, e) for e in es})
-    return {k: multientry(k, v) for k,v in result.items()}
+    return conjtodictword
+
+def formatentries(es: Set[EdictEntry], maxdefs: int) -> str:
+    def singleentry(edict: EdictEntry):
+        dictforms = list(edict.kanji + edict.kana)
+        main = edict.kanji[0]
+        dictforms.remove(main)
+        q = '"'
+        qq = '\''
+        return f'{" ".join([main] + dictforms)} {" ".join(edict.pos)}: {" ".join(d.replace(q, qq) for d in edict.engdefs[0:maxdefs])}'
+
+    return '\n'.join({singleentry(e) for e in es})
