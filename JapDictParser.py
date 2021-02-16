@@ -1,19 +1,22 @@
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
-from typing import List, Dict, Set
+from typing import List, Dict, Set, Pattern, Tuple
 
 from Utils.windows import *
 import pandas as pd
 
 @dataclass
 class EdictEntry:
-    kanji: List[str]
-    kana: List[str]
+    @dataclass
+    class Entry:
+        text: str
+        tags: List[str]
+
+    kanji: List[Entry]
+    kana: List[Entry]
     pos: List[str]
-    engdefs: List[str]
+    engdefs: List[Entry]
     p: bool
-    usuallykana: bool
-    usuallykanji: bool
     id: int
 
     def __hash__(self):
@@ -127,31 +130,35 @@ def getwordconjugations(word:str, pos:str) -> Set[str]:
     #
 
     verbEndings = {'v1': ['た','て','られ','させ','られ','よう','ない','なかった','てください','なきゃ','なくちゃ','なければ','じゃう','てしま'],
-                'v5u': ['わ','った','って','い','え','わせ','われ','おう','わない','わなかった','わなきゃ','わなくちゃ','わなくて','わければ','じゃた'],
-                'v5k': ['か','いた','いて','き','け','かせ','かれ','こう','かない','かなかった','かなきゃ','かなくちゃ','かなくて'],
-                'v5g': ['が','いだ','いで','ぎ','げ','がせ','がれ','ごう','がない','がなかった','がなきゃ','がなくちゃ','がなくて'],
-                'v5s': ['さ','した','して','し','せ','させ','され','そう','さない','さなかった','さなきゃ','さなくちゃ','さなくて'],
-                'v5t': ['た','った','って','ち','て','たせ','たれ','とう','たない','たなかった','たなきゃ','たなくちゃ','たなくて'],
-                'v5n': ['な','んだ','んで','に','ね','なせ','なれ','のう','なない','ななかった','ななきゃ','ななくちゃ'],
-                'v5b': ['ば','んだ','んで','び','べ','ばせ','ばれ','ぼう','ばない','ばなかった','ばなきゃ','ばなくちゃ'],
-                'v5m': ['ま','んだ','んで','み','め','ませ','まれ','もう','まない','まなかった','まなきゃ','まなくちゃ'],
-                'v5r': ['ら','った','って','り','れ','らせ','られ','ろう','らない','らなかった','てください','て','らなきゃ','らなくちゃ'],
+                'v5u': ['わな','った','って','い','え','わせ','われ','おう','わない','わなかった','わなきゃ','わなくちゃ','わなくて','わければ','じゃた'],
+                'v5k': ['かな','いた','いて','き','け','かせ','かれ','こう','かない','かなかった','かなきゃ','かなくちゃ','かなくて'],
+                'v5g': ['がな','いだ','いで','ぎ','げ','がせ','がれ','ごう','がない','がなかった','がなきゃ','がなくちゃ','がなくて'],
+                'v5s': ['さな','した','して','し','せ','させ','され','そう','さない','さなかった','さなきゃ','さなくちゃ','さなくて'],
+                'v5t': ['たな','った','って','ち','て','たせ','たれ','とう','たない','たなかった','たなきゃ','たなくちゃ','たなくて'],
+                'v5n': ['なな','んだ','んで','に','ね','なせ','なれ','のう','なない','ななかった','ななきゃ','ななくちゃ'],
+                'v5b': ['ばな','んだ','んで','び','べ','ばせ','ばれ','ぼう','ばない','ばなかった','ばなきゃ','ばなくちゃ'],
+                'v5m': ['まな','んだ','んで','み','め','ませ','まれ','もう','まない','まなかった','まなきゃ','まなくちゃ'],
+                'v5r': ['らな','った','って','り','れ','らせ','られ','ろう','らない','らなかった','てください','て','らなきゃ','らなくちゃ'],
                 }
-    adjEndings = {'adj': ['さ','く','げ','な','か','くない','くなかった','くなく'],
-                  'adj-i': ['さ','く','げ','な','か','くない','くなかった','くなく',],
-                  'adj-s': ['さ','く','げ','な','か','くない','くなかった','くなく',],
+    adjEndings = {'adj': ['さ','く','げ','な','か','くない','くなかった','くなく', 'くては', 'くて'],
+                  'adj-i': ['さ','く','げ','な','か','くない','くなかった','くなく', 'くては', 'くて'],
+                  'adj-s': ['さ','く','げ','な','か','くない','くなかった','くなく', 'くては', 'くて'],
                   }
     nounEndings = {'n':['だった','だって','の','も', 'は', 'が', 'に', 'を', 'と','で'],
+                   'n-t': ['だった', 'だって', 'の', 'も', 'は', 'が', 'に', 'を', 'と', 'で'],
                    'n-adv': ['だった', 'だって', 'な', 'を', 'と','で'],
                    }
-    suruends = ['します','しません','した','して','してる','しました','しませんでした','させる','させない','される','されない','しろ','するな']
+    suruends = ['します','しません','した','しない','しなかった','して','してる','している','しました','しませんでした','させる','させない','される','されない','しろ','するな']
     #if 'uk' in s and len(kana) > 0:
     #    dictforms = kana
 
     allforms = set()
     def add(w):
         allforms.add(w)
-    allforms.add(word)
+    add(word)
+    if 'vs' in pos:
+        for e in suruends:
+            add(word + e)
     if 'vs-i' in pos:
         for e in suruends:
             add(word[0:-2] + e)
@@ -168,101 +175,115 @@ def getwordconjugations(word:str, pos:str) -> Set[str]:
 
     return allforms
 
-def getEntires() -> List[EdictEntry]:
+def getEntires() -> Set[EdictEntry]:
     path = "C:\\Users\matte\Downloads\edict2\edict2Orig.txt"
-    reg = re.compile(r'(?P<kanji>.*?) (\[(?P<kana>.*)\] )?/\((?P<pos>.*?)\)(?P<eng>.*?)/Ent.*?/')
-    clearTagREg = re.compile(r'\(.*?\)')
-    preg = re.compile(r'\(P\)')
-    usuallykanareg = re.compile(r'\(uk\)')
-    usuallykanjireg = re.compile(r'\(uK\)')
+    reg = re.compile(r'(?P<kanji>.*?) (\[(?P<kana>.*)\] )?/\((?P<pos>.*?)\)(?P<eng>.*?)(?P<common>/\(P\))?/Ent.*?/')
+    tagsregex: Pattern[str] = re.compile(r'\(([a-zA-Z]{1,5}?)\)')
 
 
     def splitter(s: str, id: int) -> EdictEntry:
-        def cleararch(ss: List[str]):
-            return [x for x in ss if '(arch)' not in x]
-        def cleartag(s: str):
-            return  clearTagREg.sub('', s)
-        def cleartagarr(s: List[str]):
-            return [cleartag(x) for x in s]
-
+        def getentry(entry: str) -> EdictEntry.Entry:
+            return EdictEntry.Entry(tagsregex.sub('', entry), tagsregex.findall(entry))
+        
 
         match = reg.search(s)
-        p = preg.search(s) is not None
-        usuallykana = usuallykanareg.search(s) is not None
-        usuallykanji = usuallykanjireg.search(s) is not None
-        kanji = cleartagarr(cleararch(match.group('kanji').split(';')))[0:2]
+        p = match.group('common') is not None
         if match.group('kana'):
-            kana = cleartagarr(match.group('kana').split(';'))[0:1]
+            kanji = [getentry(s) for s in match.group('kanji').split(';')]
+            kana = [getentry(s) for s in match.group('kana').split(';')]
         else:
-            kana = []
+            kanji = []
+            kana = [getentry(s) for s in match.group('kanji').split(';')]
         pos = match.group('pos').split(',')
-        eng = cleararch(re.split('\(\d+\)', match.group('eng')))
-        return EdictEntry(kanji, kana, pos, eng, p, usuallykana, usuallykanji, id)
+        eng = [getentry(s) for s in  re.split('\(\d+\)', match.group('eng'))]
+        return EdictEntry(kanji, kana, pos, eng, p, id)
 
     with open(path, "r", encoding='utf-8') as f:
-        res = []
+        res = set()
         id = 0
         for l in f.readlines():
             id += 1
             entry = splitter(l, id)
             if len(entry.kana + entry.kanji) > 0 and len(entry.engdefs) > 0:
-                res.append(entry)
+                res.add(entry)
         return res
 
 
-def getmergedentries() -> Dict[str, Set[EdictEntry]]:
+def getmergedentries() -> Tuple[Dict[str, Set[EdictEntry]], Dict[str,str]]:
     entries = getEntires()
-    wordtoentries: Dict[str, Set[EdictEntry]] = dict()
-    entrytoword: Dict[EdictEntry, Set[str]] = dict()
+    p1: List[Tuple[str, EdictEntry]] = []
+    p2: List[Tuple[str, EdictEntry]] = []
+    p3: List[Tuple[str, EdictEntry]] = []
+
+    def getpriorities(ee: EdictEntry):
+        kanji = [k for k in ee.kanji if 'oK' not in k.tags]
+        kana = [k for k in ee.kana if 'ok' not in k.tags]
+        if len(kanji) == 0:
+            p1 = []
+            p2 = []
+            if not any('P' in k.tags for k in kana):
+                return [kana[0:1], kana[1:], set()]
+            for k in kana:
+                if 'P' in k.tags:
+                    p1.append(k)
+                else:
+                    p2.append(k)
+            return [p1, p2, set()]
+        if not any('P' in k.tags for k in kanji):
+            return [kanji[0:1], kanji[1:], [k for k in kana if len(k.text) >= 3]]
+        p1 = []
+        p2 = []
+        for k in kanji:
+            if 'P' in k.tags:
+                p1.append(k)
+            else:
+                p2.append(k)
+        return [p1 + [k for k in kana if 'P' in k.tags] ,p2, [k for k in kana if len(k.text) >= 3 and 'P' not in k.tags]]
 
     for e in entries:
-        existingwords = {w for w in e.kanji if w in wordtoentries}
-        existingentries = {entry for w in existingwords for entry in wordtoentries[w]}
-        for word in existingwords:
-            del wordtoentries[word]
-        for entry in existingentries:
-            del entrytoword[entry]
-        existingentries.add(e)
-        for w in e.kana + e.kanji:
-            existingwords.add(w)
-        for ee in existingentries:
-            entrytoword[ee] = existingwords
-        for w in existingwords:
-            wordtoentries[w] = existingentries
+        if all('arch' in ed.tags or 'obsc' in ed.tags for ed in e.engdefs):
+            continue
+        forms = getpriorities(e)
+        for k in forms[0]:
+            p1.append((k.text, e))
+        for k in forms[1]:
+            p2.append((k.text, e))
+        for k in forms[2]:
+            p3.append((k.text, e))
 
-    return wordtoentries
+    conjtoword: Dict[str,str] = dict()
+    wordtoentries: Dict[str, Set[EdictEntry]] = dict()
 
-def getfcdict() -> Dict[str, str]:
-    return {k: formatentries(v, 100) for k, v in getmergedentries().items()}
+    addnewtodicts(conjtoword, p1, wordtoentries)
+    addnewtodicts(conjtoword, p2, wordtoentries)
+    addnewtodicts(conjtoword, p3, wordtoentries)
+    return wordtoentries, conjtoword
 
-def getconjtoword(merged) -> Dict[str, str]:
-    merged = merged or getmergedentries()
-    conjtodictword: Dict[str, str] = dict()
-    # main word
-    for w, es in merged.items():
-        for e in es:
-            for p in e.pos:
-                for c in getwordconjugations(e.kanji[0], p):
-                    if c not in conjtodictword:
-                        conjtodictword[c] = w
-    # other forms
-    for w, entries in merged.items():
-        for e in entries:
-            for writing in e.kanji[1:] + e.kana:
-                for p in e.pos:
-                    for c in getwordconjugations(writing, p):
-                        if c not in conjtodictword:
-                            conjtodictword[c] = w
 
-    return conjtodictword
+def addnewtodicts(conjtoword, p1, wordtoentries):
+    def getoverlaps(entries: List[Tuple[str, EdictEntry]]) -> Dict[str, Set[EdictEntry]]:
+        res = dict()
+        for i in entries:
+            res.setdefault(i[0], []).append(i[1])
+        return res
 
-def formatentries(es: Set[EdictEntry], maxdefs: int) -> str:
+    for k, ees in getoverlaps(p1).items():
+        if k in wordtoentries:
+            continue
+        wordtoentries[k] = ees
+        for c in {conj for entry in ees for p in entry.pos for conj in getwordconjugations(k, p)}:
+            if c not in conjtoword:
+                conjtoword[c] = k
+
+def getfcdict(basetoentries: Dict[str, Set[EdictEntry]]) -> Dict[str, str]:
+    return {k: formatentries(k, v, 100) for k, v in basetoentries.items()}
+
+def formatentries(word:str,  es: Set[EdictEntry], maxdefs: int) -> str:
     def singleentry(edict: EdictEntry):
-        dictforms = list(edict.kanji + edict.kana)
-        main = edict.kanji[0]
-        dictforms.remove(main)
+        dictforms = [k.text for k in edict.kanji + edict.kana]
+        dictforms.remove(word)
         q = '"'
         qq = '\''
-        return f'{" ".join([main] + dictforms)} {" ".join(edict.pos)}: {" ".join(d.replace(q, qq) for d in edict.engdefs[0:maxdefs])}'
+        return f'{" ".join([word] + dictforms)} {" ".join(edict.pos)}: {" ".join(d.text.replace(q, qq) for d in edict.engdefs[0:maxdefs])}'
 
     return '\n'.join({singleentry(e) for e in es})

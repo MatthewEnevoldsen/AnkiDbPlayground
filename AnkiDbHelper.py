@@ -17,6 +17,8 @@ class AnkiDbHelper:
         self.notes = db.notes
         self.cards = db.cards
         self.col = db.col
+        self.fields = db.fields
+        self.notetypes = db.notetypes
         self.revlog = db.revlog
         self.session = db.session
         self.dbReader = AnkiDbReader(db)
@@ -213,6 +215,21 @@ class AnkiDbHelper:
         fix('Core10K', 'VocabFuri')
         self.session.commit()
         fix('AllSentences', 'Japanese')
+        self.session.commit()
+
+    def move_furi_and_clear(self):
+        nn = 'AllSentences'
+        noteFields = self.dbReader.getNoteFields(nn)
+        japind = noteFields['Japanese']
+        furiind = noteFields['MaybeReading']
+        furiregex = re.compile('\[[ぁ-んァ-ン]+?\]')
+        for n in self.dbReader.getNotesOfType(nn):
+            senwithfuri =self.dbReader.getField(n.flds, furiind)
+            sen = self.dbReader.getField(n.flds, japind)
+            if furiregex.search(sen) is not None and senwithfuri == '':
+                self.updateField(n, furiind, sen)
+                self.updateField(n, japind, furiregex.sub('', sen))
+
         self.session.commit()
 
     def suspend_unseen(self):

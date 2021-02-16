@@ -1,5 +1,6 @@
 import json
 import re
+import types
 from collections import namedtuple
 from datetime import datetime
 from typing import List, Set, Dict
@@ -70,16 +71,7 @@ class AnkiSentence:
         fields = get_flds(AnkiSentence.noteDef, flds)
         self.eng = fields['English']
         self.jap = fields['Japanese']
-        self.id =  int(fields['Id']) if fields['Id'].isnumeric() else 2000000000
-
-    def potentialWords(self) -> Set[str]:
-        defuri = AnkiSentence.furireg.sub('', self.jap)
-        max = min(len(defuri) + 1, 7)
-        res = set()
-        for l in range(1, max):
-            for s in range(0, len(defuri) - l + 1):
-                res.add(defuri[s:s + l])
-        return res
+        self.id = int(fields['Id']) if fields['Id'].isnumeric() else 2000000000
 
     def __hash__(self):
         return id.__hash__()
@@ -92,6 +84,8 @@ class AnkiDbReader:
         self.notes = db.notes
         self.cards = db.cards
         self.col = db.col
+        self.notetypes = db.notetypes
+        self.fields = db.fields
         self.revlog = db.revlog
         self.session = db.session
         AnkiVocab.noteDef = self.getNoteFields('Core10K')
@@ -100,11 +94,11 @@ class AnkiDbReader:
     def getAllSentences(self):
         return [self.getSentence(n.flds) for n in self.getNotesOfType('AllSentences')]
 
-    def getNextWeekSentences(self):
-        oneweekfromtodayinanki = (datetime.utcnow() - datetime(1970,1,1)).days - 17001 + 17 + 7
+    def getNextWeekSentences(self) -> List[AnkiSentence]:
+        oneweekfromtodayinanki = (datetime.utcnow() - datetime(1970,1,1)).days - 17001 + 17 + 7 + 7
         def isCardDueInNetWeek(n) -> bool:
             for c in self.cardsFromNote(n):
-                if c.queue in [0, 1, 3]:
+                if c.queue in [1, 3]:
                     return True
                 if c.queue == 2 and c.due < oneweekfromtodayinanki:
                     return True
@@ -152,12 +146,16 @@ class AnkiDbReader:
         def json2obj(data):
             return json.loads(data, object_hook=_json_object_hook)
 
-        models = list(self.session.query(self.col))[0].models
-        noteDefs = json2obj(re.sub(r'\"(\d+)\":', '\"Id\\1\":', models))
-        return list(filter(lambda i: i.name.lower() == noteName.lower(), noteDefs))[0]
+        nt = list(filter(lambda nt: nt.name.lower() == noteName.lower(), self.session.query(self.notetypes)))[0]
+        fields = list(filter(lambda f: f.ntid == nt.id, self.session.query(self.fields)))
+        res = types.SimpleNamespace()
+        res.id = nt.id
+        res.fields = fields
+        res.name = noteName
+        return res
 
     def getNoteFields(self, name: str):
-        return {f.name: f.ord for f in self.getNoteDef(name).flds}
+        return {f.name: f.ord for f in self.getNoteDef(name).fields}
 
     def get10KVocab(self, flds: str):
         return AnkiVocab(flds)

@@ -5,16 +5,18 @@ from sqlalchemy.orm import Session
 
 class AnkiDb:
     def __init__(self):
-        #dbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.anki2"
-        dbPath = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.ank2.pycharm"
-        Base = automap_base()
-        engine = create_engine(f"sqlite:///{dbPath}")
-        Base.prepare(engine, reflect=True)
+        #db_path = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection.anki2"
+        db_path = f"C:/Users/matte/AppData/Roaming/Anki2/Tirinst/collection - Copy.anki2"
+        base = automap_base()
+        engine = create_engine(f"sqlite:///{db_path}")
+        base.prepare(engine, reflect=True)
 
-        self.notes = Base.classes.notes
-        self.cards = Base.classes.cards
-        self.col = Base.classes.col
-        self.revlog = Base.classes.revlog
+        self.notes = base.classes.notes
+        self.cards = base.classes.cards
+        self.col = base.classes.col
+        self.notetypes = base.classes.notetypes
+        self.fields = base.classes.fields
+        self.revlog = base.classes.revlog
         self.session = Session(engine)
 
     def __enter__(self):

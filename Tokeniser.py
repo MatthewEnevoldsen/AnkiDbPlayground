@@ -1,20 +1,50 @@
+from typing import List, Tuple
 
-def separatefirstword(str, dict):
+
+def separatelastword(str, dict):
     maxwordlen = 10
-    for i in range(max(len(str) - maxwordlen, 1), len(str) - 1):
-        if str[0:len(str) - i] in dict:
-            return (str[0:len(str) - i], str[len(str) - i: len(str)])
+    for i in range(min(len(str), maxwordlen), 0, -1):
+        if str[-i:] in dict:
+            return (str[-i:], str[0:-i])
     return None
 
 
 def splittowords(str, dict):
     words = []
-    left = str
-    while len(left) > 0:
-        res = separatefirstword(left, dict)
+    right = str
+    while len(right) > 0:
+        res = separatelastword(right, dict)
         if res is None:
-            left = left[1:]
+            right = right[0:-1]
         else:
-            word, left = res
+            word, right = res
             words.append(word)
+    words.reverse()
     return words
+
+def allfirstwords(str, dict):
+    maxwordlen = 10
+    return [str[0:i] for i in range(min(len(str), maxwordlen), 0, -1) if str[0:i] in dict]
+def recyboy(str, dict) -> List[List[str]]:
+    words = allfirstwords(str, dict)
+    if not any(str):
+        return [[]]
+    if not any(words):
+        return recyboy(str[1:], dict)
+    for w in words:
+        return [[w] + res for res in recyboy(str[len(w):], dict)]
+def maxlensqtokens(str, dict):
+    def sumsqlen(strs):
+        return sum([len(s) * len(s) for s in strs])
+    best: List[str] = []
+    poss = recyboy(str, dict)
+    for p in poss:
+        if sumsqlen(p) > sumsqlen(best):
+            best = p
+    return best
+
+
+
+
+
+
